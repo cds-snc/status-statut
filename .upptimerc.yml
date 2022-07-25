@@ -22,7 +22,7 @@ status-website:
   # cname: demo.upptime.js.org
   baseUrl: /status-statut
   logoUrl: https://raw.githubusercontent.com/cds-snc/status-statut/main/assets/cds-lockup-ko-en.svg
-  name: CDS-SNC
+  name: ""
   introTitle: "Canadian Digital Service / Service numérique canadien"
   introMessage: Status page for CDS products / Page de statut pour les produits du SNC
   navbar:
