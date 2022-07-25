@@ -27,9 +27,10 @@ status-website:
   introMessage: Status page for CDS products / Page de statut pour les produits du SNC
   navbar:
     - title: Status
-      href: /
+      href: /status-statut
     - title: GitHub
       href: https://github.com/$OWNER/$REPO
+  theme: dark
 
 # Upptime also supports notifications, assigning issues, and more
 # See https://upptime.js.org/docs/configuration
