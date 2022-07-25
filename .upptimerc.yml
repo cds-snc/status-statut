@@ -7,6 +7,10 @@ sites:
     url: https://digital.canada.ca/
   - name: numerique.canada.ca
     url: https://numerique.canada.ca/
+  - name: GC Articles - Articles GC
+    url: https://articles.alpha.canada.ca/
+  - name: GC Forms - Formulaires GC
+    url: https://forms-formulaires.alpha.canada.ca/
   - name: GC Notify
     url: https://notification.canada.ca/
   - name: GC Notify API
@@ -17,10 +21,10 @@ status-website:
   # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
   # cname: demo.upptime.js.org
   baseUrl: /status-statut
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
+  logoUrl: https://raw.githubusercontent.com/cds-snc/status-statut/main/assets/cds-lockup-ko-en.svg
+  name: CDS-SNC
+  introTitle: "Canadian Digital Service / Service numérique canadien"
+  introMessage: Status page for CDS products / Page de statut pour les produits du SNC
   navbar:
     - title: Status
       href: /
