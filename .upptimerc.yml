@@ -7,6 +7,10 @@ sites:
     url: https://digital.canada.ca/
   - name: numerique.canada.ca
     url: https://numerique.canada.ca/
+  - name: GC Notify
+    url: https://notification.canada.ca/
+  - name: GC Notify API
+    url: https://api.notification.canada.ca/
 
 status-website:
   # Add your custom domain name, or remove the `cname` line if you don't have a domain
