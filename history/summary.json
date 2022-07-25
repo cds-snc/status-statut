@@ -34,5 +34,41 @@
     "timeMonth": 535,
     "timeYear": 535,
     "dailyMinutesDown": {}
+  },
+  {
+    "name": "GC Notify",
+    "url": "https://notification.canada.ca/",
+    "icon": "https://favicons.githubusercontent.com/notification.canada.ca",
+    "slug": "gc-notify",
+    "status": "up",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
+    "time": 447,
+    "timeDay": 447,
+    "timeWeek": 447,
+    "timeMonth": 447,
+    "timeYear": 447,
+    "dailyMinutesDown": {}
+  },
+  {
+    "name": "GC Notify API",
+    "url": "https://api.notification.canada.ca/",
+    "icon": "https://favicons.githubusercontent.com/api.notification.canada.ca",
+    "slug": "gc-notify-api",
+    "status": "up",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
+    "time": 237,
+    "timeDay": 237,
+    "timeWeek": 237,
+    "timeMonth": 237,
+    "timeYear": 237,
+    "dailyMinutesDown": {}
   }
 ]
