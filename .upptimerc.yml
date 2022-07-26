@@ -5,16 +5,46 @@ repo: status-statut # The name of this repository
 sites:
   - name: digital.canada.ca
     url: https://digital.canada.ca/
+    assignees:
+      - maxneuvians
+      - CalvinRodo
+      - patheard
+      - dinophile
   - name: numerique.canada.ca
     url: https://numerique.canada.ca/
+    assignees:
+      - maxneuvians
+      - CalvinRodo
+      - patheard
+      - dinophile
   - name: GC Articles - Articles GC
     url: https://articles.alpha.canada.ca/
+    assignees:
+      - maxneuvians
+      - CalvinRodo
+      - patheard
+      - dinophile
   - name: GC Forms - Formulaires GC
     url: https://forms-formulaires.alpha.canada.ca/
+    assignees:
+      - maxneuvians
+      - CalvinRodo
+      - patheard
+      - dinophile
   - name: GC Notify
     url: https://notification.canada.ca/
+    assignees:
+      - maxneuvians
+      - CalvinRodo
+      - patheard
+      - dinophile
   - name: GC Notify API
     url: https://api.notification.canada.ca/
+    assignees:
+      - maxneuvians
+      - CalvinRodo
+      - patheard
+      - dinophile
 
 status-website:
   # Add your custom domain name, or remove the `cname` line if you don't have a domain
