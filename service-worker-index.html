@@ -1,1 +1,18 @@
-<pre>Internal server error</pre>
+<!DOCTYPE html> <html lang=en> <head> <meta charset=utf-8> <meta content="width=device-width,initial-scale=1" name=viewport> <meta content=#333333 name=theme-color> <base href=/status-statut/ > <link href=manifest.json rel=manifest crossorigin=use-credentials> <script>__SAPPER__={baseUrl:"/status-statut",preloaded:[void 0]};if('serviceWorker' in navigator)navigator.serviceWorker.register('/status-statut/service-worker.js');(function(){try{eval("async function x(){}");var main="/status-statut/client/client.7a42f462.js"}catch(e){main="/status-statut/client/legacy/client.a2c2609a.js"};var s=document.createElement("script");try{new Function("if(0)import('')")();s.src=main;s.type="module";s.crossOrigin="use-credentials";}catch(e){s.src="/status-statut/client/shimport@2.0.5.js";s.setAttribute("data-main",main);}document.head.appendChild(s);}());</script> <link href=client/client-d6959ee0.css rel=stylesheet><link href=client/createOctokit-865318f3.css rel=stylesheet><link href=client/index-f7605f9e.css rel=stylesheet> <link href=https://cds-snc.github.io/status-statut/themes/dark.css rel=stylesheet data-svelte=svelte-ri9y7q><link href=https://cds-snc.github.io/status-statut/global.css rel=stylesheet data-svelte=svelte-ri9y7q><link href=https://raw.githubusercontent.com/koj-co/upptime/master/assets/icon.svg rel=icon data-svelte=svelte-ri9y7q type=image/svg><link href=/logo-192.png rel=icon data-svelte=svelte-ri9y7q type=image/png> <link href=/status-statut/client/client.7a42f462.js rel=modulepreload as=script crossorigin=use-credentials><link href=/status-statut/client/client-d6959ee0.css rel=preload as=style><link href=/status-statut/client/index.b86c4d00.js rel=modulepreload as=script crossorigin=use-credentials><link href=/status-statut/client/createOctokit.985c8e53.js rel=modulepreload as=script crossorigin=use-credentials><link href=/status-statut/client/inject_styles.803b7e80.js rel=modulepreload as=script crossorigin=use-credentials><link href=/status-statut/client/createOctokit-865318f3.css rel=preload as=style><link href=/status-statut/client/index-f7605f9e.css rel=preload as=style></head> <body> <div id=sapper> <nav class=svelte-a08hsz><div class="svelte-a08hsz container"><div><a class="svelte-a08hsz logo" href=https://cds-snc.github.io/status-statut><img alt="" class=svelte-a08hsz src=https://raw.githubusercontent.com/cds-snc/status-statut/main/assets/cds-lockup-ko-en.svg> <div></div></a></div> <ul class=svelte-a08hsz><li><a class=svelte-a08hsz href=/status-statut target=_self>Status / Statut</a> <li><a class=svelte-a08hsz href=https://github.com/cds-snc/status-statut target=_self>GitHub</a> </li> </ul></div> </nav> <main class=container></main> <footer class=svelte-jbr799><p>Canadian Digital Service / Service numérique canadien</p> </footer></div> <script> try {
+        if (typeof window !== "undefined" && window.navigator && navigator.serviceWorker) {
+          navigator.serviceWorker.getRegistrations().then(function (registrations) {
+            for (let registration of registrations) {
+              registration.unregister();
+            }
+          });
+        }
+        if (typeof window !== "undefined" && "caches" in window) {
+          caches.keys().then(function (keyList) {
+            return Promise.all(
+              keyList.map(function (key) {
+                return caches.delete(key);
+              })
+            );
+          });
+        }
+      } catch (error) {} </script> 
