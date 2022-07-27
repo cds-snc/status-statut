@@ -45,6 +45,20 @@ sites:
       - CalvinRodo
       - patheard
       - dinophile
+  - name: Scan websites
+    url: https://scan-websites.alpha.canada.ca/
+    assignees:
+      - maxneuvians
+      - CalvinRodo
+      - patheard
+      - dinophile
+  - name: Scan files
+    url: https://scan-files.alpha.canada.ca/
+    assignees:
+      - maxneuvians
+      - CalvinRodo
+      - patheard
+      - dinophile
 
 status-website:
   # Add your custom domain name, or remove the `cname` line if you don't have a domain
