@@ -62,5 +62,45 @@ status-website:
       href: https://github.com/$OWNER/$REPO
   theme: dark
 
+
 # Upptime also supports notifications, assigning issues, and more
 # See https://upptime.js.org/docs/configuration
+
+i18n:
+  activeIncidents: Active Incidents / Incidents actifs
+  allSystemsOperational: All systems are operational / Tous les systèmes sont opérationnels
+  incidentReport: "Incident #$NUMBER report → / Rapport d'incident #$NUMBER →"
+  activeIncidentSummary: Opened at $DATE with $POSTS posts / Ouvert à $DATE avec des postes $POSTS
+  incidentTitle: Incident $NUMBER Details / Détails de l'incident $NUMBER
+  incidentDetails: Incident Details / Détails de l'incident
+  incidentFixed: Fixed / Fixé
+  incidentOngoing: Ongoing / En cours
+  incidentOpenedAt: Opened at / Ouvert à
+  incidentClosedAt: Closed at / Fermé à
+  incidentViewOnGitHub: View and Subscribe on GitHub / Voir et s'abonner sur GitHub
+  incidentCommentSummary: Posted at $DATE by $AUTHOR / Posté à $DATE par $AUTHOR
+  incidentBack: ← Back to all incidents / ← Retour à tous les incidents
+  pastIncidents: Past Incidents / Incidents passés
+  pastIncidentsResolved: Resolved in $MINUTES minutes with $POSTS posts / Résolu dans les minutes $MINUTES avec les messages $POSTS
+  liveStatus: Live Status / Statut en direct
+  overallUptime: "Overall uptime: $UPTIME / Temps de fonctionnement global : $UPTIME"
+  overallUptimeTitle: Overall uptime / Temps de fonctionnement global
+  averageResponseTime: "Average response time: $TIMEms / Temps de réponse moyen : $TIMEms"
+  averageResponseTimeTitle: Average response / Réponse moyenne
+  sevelDayResponseTime: 7-day response time / Délai de réponse de 7 jours
+  responseTimeMs: Response time (ms) / Temps de réponse (ms)
+  up: Up / En haut
+  down: Down / En bas
+  degraded: Degraded
+  loading: Loading
+  footer: 
+  pastScheduledMaintenance: Past Scheduled Maintenance / Maintenance programmée passée
+  scheduledMaintenance: Scheduled Maintenance / Maintenance programmée
+  scheduledMaintenanceSummaryStarted: Started at $DATE for $DURATION minutes / Démarré à $DATE pour $DURATION minutes
+  scheduledMaintenanceSummaryStarts: Starts at $DATE for $DURATION minutes / Commence à $DATE pour $DURATION minutes
+  startedAt: Started at / Commencé à
+  startsAt: Starts at / Commence à
+  duration: Duration / Durée
+  durationMin: $DURATION minutes
+  incidentCompleted: Completed / Complété
+  incidentScheduled: Scheduled / Programmé
