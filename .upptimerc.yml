@@ -56,7 +56,7 @@ status-website:
   introTitle: "Canadian Digital Service / Service numérique canadien"
   introMessage: Status page for CDS products / Page de statut pour les produits du SNC
   navbar:
-    - title: Status
+    - title: Status / Statut
       href: /status-statut
     - title: GitHub
       href: https://github.com/$OWNER/$REPO
