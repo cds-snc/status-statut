@@ -109,7 +109,7 @@ i18n:
   incidentCommentSummary: Posted at $DATE by $AUTHOR / Posté à $DATE par $AUTHOR
   incidentBack: ← Back to all incidents / Retour à tous les incidents
   pastIncidents: Past Incidents / Incidents passés
-  pastIncidentsResolved: Resolved in $MINUTES minutes with $POSTS posts / Résolu dans les minutes $MINUTES avec les messages $POSTS
+  pastIncidentsResolved: Resolved in $MINUTES minutes with $POSTS posts / Résolu en $MINUTES minutes avec les messages $POSTS
   liveStatus: Live Status / Statut en direct
   overallUptime: "Overall uptime / Temps de fonctionnement global: $UPTIME"
   overallUptimeTitle: Overall uptime / Temps de fonctionnement global
@@ -119,8 +119,8 @@ i18n:
   responseTimeMs: Response time (ms) / Temps de réponse (ms)
   up: Up / En haut
   down: Down / En bas
-  degraded: Degraded
-  loading: Loading
+  degraded: Degraded / Détérioré
+  loading: Loading / Chargement
   footer: Canadian Digital Service / Service numérique canadien
   pastScheduledMaintenance: Past Scheduled Maintenance / Maintenance programmée passée
   scheduledMaintenance: Scheduled Maintenance / Maintenance programmée
