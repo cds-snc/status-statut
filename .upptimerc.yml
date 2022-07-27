@@ -59,6 +59,20 @@ sites:
       - CalvinRodo
       - patheard
       - dinophile
+  - name: Share secrets
+    url: https://secret.cdssandbox.xyz/
+    assignees:
+      - maxneuvians
+      - CalvinRodo
+      - patheard
+      - dinophile
+  - name: Share file securely
+    url: https://share-files.cdssandbox.xyz/healthcheck
+    assignees:
+      - maxneuvians
+      - CalvinRodo
+      - patheard
+      - dinophile
 
 status-website:
   # Add your custom domain name, or remove the `cname` line if you don't have a domain
@@ -83,7 +97,7 @@ status-website:
 i18n:
   activeIncidents: Active Incidents / Incidents actifs
   allSystemsOperational: All systems are operational / Tous les systèmes sont opérationnels
-  incidentReport: "Incident #$NUMBER report → / Rapport d'incident #$NUMBER →"
+  incidentReport: "Incident #$NUMBER report / Rapport d'incident #$NUMBER →"
   activeIncidentSummary: Opened at $DATE with $POSTS posts / Ouvert à $DATE avec des postes $POSTS
   incidentTitle: Incident $NUMBER Details / Détails de l'incident $NUMBER
   incidentDetails: Incident Details / Détails de l'incident
@@ -93,7 +107,7 @@ i18n:
   incidentClosedAt: Closed at / Fermé à
   incidentViewOnGitHub: View and Subscribe on GitHub / Voir et s'abonner sur GitHub
   incidentCommentSummary: Posted at $DATE by $AUTHOR / Posté à $DATE par $AUTHOR
-  incidentBack: ← Back to all incidents / ← Retour à tous les incidents
+  incidentBack: ← Back to all incidents / Retour à tous les incidents
   pastIncidents: Past Incidents / Incidents passés
   pastIncidentsResolved: Resolved in $MINUTES minutes with $POSTS posts / Résolu dans les minutes $MINUTES avec les messages $POSTS
   liveStatus: Live Status / Statut en direct
