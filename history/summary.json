@@ -131,11 +131,11 @@
     "icon": "https://favicons.githubusercontent.com/scan-files.alpha.canada.ca",
     "slug": "scan-files",
     "status": "up",
-    "uptime": "10.73%",
-    "uptimeDay": "10.73%",
-    "uptimeWeek": "10.73%",
-    "uptimeMonth": "10.73%",
-    "uptimeYear": "10.73%",
+    "uptime": "70.09%",
+    "uptimeDay": "70.09%",
+    "uptimeWeek": "70.09%",
+    "uptimeMonth": "70.09%",
+    "uptimeYear": "70.09%",
     "time": 381,
     "timeDay": 381,
     "timeWeek": 381,
@@ -144,5 +144,41 @@
     "dailyMinutesDown": {
       "2022-07-27": 11
     }
+  },
+  {
+    "name": "Share secrets",
+    "url": "https://secret.cdssandbox.xyz/",
+    "icon": "https://favicons.githubusercontent.com/secret.cdssandbox.xyz",
+    "slug": "share-secrets",
+    "status": "up",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
+    "time": 363,
+    "timeDay": 363,
+    "timeWeek": 363,
+    "timeMonth": 363,
+    "timeYear": 363,
+    "dailyMinutesDown": {}
+  },
+  {
+    "name": "Share file securely",
+    "url": "https://share-files.cdssandbox.xyz/healthcheck",
+    "icon": "https://favicons.githubusercontent.com/share-files.cdssandbox.xyz",
+    "slug": "share-file-securely",
+    "status": "up",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
+    "time": 207,
+    "timeDay": 207,
+    "timeWeek": 207,
+    "timeMonth": 207,
+    "timeYear": 207,
+    "dailyMinutesDown": {}
   }
 ]
