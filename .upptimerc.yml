@@ -53,7 +53,7 @@ sites:
       - patheard
       - dinophile
   - name: Scan files
-    url: https://scan-files.alpha.canada.ca/
+    url: https://scan-files.alpha.canada.ca/healthcheck
     assignees:
       - maxneuvians
       - CalvinRodo
