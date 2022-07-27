@@ -106,5 +106,43 @@
     "timeMonth": 366,
     "timeYear": 366,
     "dailyMinutesDown": {}
+  },
+  {
+    "name": "Scan websites",
+    "url": "https://scan-websites.alpha.canada.ca/",
+    "icon": "https://favicons.githubusercontent.com/scan-websites.alpha.canada.ca",
+    "slug": "scan-websites",
+    "status": "up",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
+    "time": 1214,
+    "timeDay": 1214,
+    "timeWeek": 1214,
+    "timeMonth": 1214,
+    "timeYear": 1214,
+    "dailyMinutesDown": {}
+  },
+  {
+    "name": "Scan files",
+    "url": "https://scan-files.alpha.canada.ca/",
+    "icon": "https://favicons.githubusercontent.com/scan-files.alpha.canada.ca",
+    "slug": "scan-files",
+    "status": "down",
+    "uptime": "0.00%",
+    "uptimeDay": "0.00%",
+    "uptimeWeek": "0.00%",
+    "uptimeMonth": "0.00%",
+    "uptimeYear": "0.00%",
+    "time": 352,
+    "timeDay": 352,
+    "timeWeek": 352,
+    "timeMonth": 352,
+    "timeYear": 352,
+    "dailyMinutesDown": {
+      "2022-07-27": 10
+    }
   }
 ]
