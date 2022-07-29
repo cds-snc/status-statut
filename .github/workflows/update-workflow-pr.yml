@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2.3.3
-      - name: Generate PR
+      - name: Patch files
         uses: actions/github-script@v6
         with:
           script: |
@@ -50,10 +50,21 @@ jobs:
             const current_version = execOut.split("upptime/uptime-monitor@")[1].trim()
             latest_tag = "v1.28.0"
             if(current_version == latest_tag ){
-              console.log("No update required, latest tag is: ",latest_tag)
+              console.log("No update required, latest tag is:", latest_tag)
+              core.exportVariable('newVersion', 'false');
             } else {
-              console.log("Updating to: ", latest_tag)
+              console.log("Updating to:", latest_tag)
+              await exec.exec('sed', ['-i', `s/{current_version}/{latest_tag}/g`, '**.yml'], options);
+              core.exportVariable('newVersion', latest_tag);
             }
             console.log("Done")
-
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        if: ${{ env.newVersion }} != 'falsr'
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Update actions to ${{ env.newVersion }}
+          title: '[Update] Upgrade to ${{ env.newVersion }}'
+          body: >
+            This PR is will bump the version of the CI files to ${{ env.newVersion }}
 
