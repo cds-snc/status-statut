@@ -6,9 +6,6 @@ jobs:
   open_pr:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 14
       - uses: actions/github-script@v6
         with:
           script: |
@@ -47,7 +44,7 @@ jobs:
             };
             options.cwd = './.github/workflows';
 
-            await exec('head', ['-1', 'setup.yml'], options);
+            await exec.exec('head', ['-1', 'setup.yml'], options);
 
             console.log(out)
 
