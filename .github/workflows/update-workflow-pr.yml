@@ -6,9 +6,14 @@ jobs:
   open_pr:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
       - uses: actions/github-script@v6
+        working-directory: ./.github/workflows
         with:
           script: |
+            const exec = require('@actions/exec');
             const query = `query($owner:String!, $name:String!) {
               repository(owner:$owner, name:$name){
                 refs(refPrefix: "refs/tags/", first: 1, orderBy: {field: TAG_COMMIT_DATE, direction: DESC}) {
@@ -28,3 +33,23 @@ jobs:
             const nodes = result.repository.refs.edges 
             const latest_tag = nodes[0].node.name
             console.log(latest_tag)
+
+            let out = '';
+            let error = '';
+
+            const options = {};
+            options.listeners = {
+              stdout: (data: Buffer) => {
+                out += data.toString();
+              },
+              stderr: (data: Buffer) => {
+                error += data.toString();
+              }
+            };
+            options.cwd = './';
+
+            await exec.exec('head', ['-1', 'setup.yml'], options);
+
+            console.log(out)
+
+
