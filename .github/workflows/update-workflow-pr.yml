@@ -11,18 +11,15 @@ jobs:
           script: |
             const query = `query($owner:String!, $name:String!) {
               repository(owner:$owner, name:$name){
-                refs(refPrefix: "refs/tags/", first: 1, orderBy: {field: TAG_COMMIT_DATE, direction: DESC}) {
+                refs(refPrefix: "refs/tags/", first: 100, orderBy: {field: TAG_COMMIT_DATE, direction: DESC}) {
                   edges {
                     node {
                       name
                       target {
                         oid
                         ... on Tag {
-                          message
                           commitUrl
                           tagger {
-                            name
-                            email
                             date
                           }
                         }
