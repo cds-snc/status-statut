@@ -10,7 +10,6 @@ jobs:
         with:
           node-version: 14
       - uses: actions/github-script@v6
-        working-directory: ./.github/workflows
         with:
           script: |
             const exec = require('@actions/exec');
@@ -46,7 +45,7 @@ jobs:
                 error += data.toString();
               }
             };
-            options.cwd = './';
+            options.cwd = './.github/workflows';
 
             await exec.exec('head', ['-1', 'setup.yml'], options);
 
