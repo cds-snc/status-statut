@@ -29,22 +29,4 @@ jobs:
             const latest_tag = nodes[0].node.name
             console.log(latest_tag)
 
-            let out = '';
-            let error = '';
-
-            const options = {};
-            options.listeners = {
-              stdout: (data: Buffer) => {
-                out += data.toString();
-              },
-              stderr: (data: Buffer) => {
-                error += data.toString();
-              }
-            };
-            options.cwd = './.github/workflows';
-
-            await exec.exec('head', ['-1', 'setup.yml'], options);
-
-            console.log(out)
-
 
