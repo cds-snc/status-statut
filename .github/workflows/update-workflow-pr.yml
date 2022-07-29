@@ -9,7 +9,6 @@ jobs:
       - uses: actions/github-script@v6
         with:
           script: |
-            const exec = require('@actions/exec');
             const query = `query($owner:String!, $name:String!) {
               repository(owner:$owner, name:$name){
                 refs(refPrefix: "refs/tags/", first: 1, orderBy: {field: TAG_COMMIT_DATE, direction: DESC}) {
