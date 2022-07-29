@@ -1,7 +1,7 @@
 name: Update workflows with PR
 on:
-  - pull_requests
-
+  workflow_dispatch:
+  pull_request:
 jobs:
   open_pr:
     runs-on: ubuntu-latest
