@@ -11,19 +11,10 @@ jobs:
           script: |
             const query = `query($owner:String!, $name:String!) {
               repository(owner:$owner, name:$name){
-                refs(refPrefix: "refs/tags/", first: 100, orderBy: {field: TAG_COMMIT_DATE, direction: DESC}) {
+                refs(refPrefix: "refs/tags/", first: 1, orderBy: {field: TAG_COMMIT_DATE, direction: DESC}) {
                   edges {
                     node {
                       name
-                      target {
-                        oid
-                        ... on Tag {
-                          commitUrl
-                          tagger {
-                            date
-                          }
-                        }
-                      }
                     }
                   }
                 }
@@ -31,7 +22,8 @@ jobs:
             }`;
             const variables = {
               owner: "upptime",
-              name: "upptime",
+              name: "uptime-monitor",
             }
             const result = await github.graphql(query, variables)
-            console.log(result)
+            const nodes = result.repository.refs.edges 
+            console.log(nodes[0])
