@@ -1,9 +1,9 @@
-name: Update workflows with PR
+name: Creates issue to bump workflows
 on:
   workflow_dispatch:
   pull_request:
 jobs:
-  open_pr:
+  open_issue:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -56,13 +56,11 @@ jobs:
               core.exportVariable('newVersion', 'false');
             } else {
               console.log("Updating to:", latest_tag)
-              await exec.exec('sed', ['-i', `s/${current_version}/${latest_tag}/g`, 'setup.yml'], options);
               core.exportVariable('newVersion', latest_tag);
             }
-            console.log("Done")
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
-        if: ${{ env.newVersion }} != 'falsr'
+      - name: Create Issue
+        uses: JasonEtco/create-an-issue@v2
+        if: ${{ env.newVersion }} != 'false'
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: Update actions to ${{ env.newVersion }}
