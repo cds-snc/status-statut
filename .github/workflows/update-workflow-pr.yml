@@ -26,4 +26,5 @@ jobs:
             }
             const result = await github.graphql(query, variables)
             const nodes = result.repository.refs.edges 
-            console.log(nodes[0])
+            const latest_tag = nodes[0].node.name
+            console.log(latest_tag)
