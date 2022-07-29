@@ -61,10 +61,9 @@ jobs:
       - name: Create Issue
         uses: JasonEtco/create-an-issue@v2
         if: ${{ env.newVersion }} != 'false'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: Update actions to ${{ env.newVersion }}
-          title: '[Update] Upgrade to ${{ env.newVersion }}'
-          body: >
-            This PR is will bump the version of the CI files to ${{ env.newVersion }}
+          update_existing: false
+          search_existing: open
 
