@@ -54,7 +54,7 @@ jobs:
               core.exportVariable('newVersion', 'false');
             } else {
               console.log("Updating to:", latest_tag)
-              await exec.exec('sed', ['-i', `s/{current_version}/{latest_tag}/g`, '**.yml'], options);
+              await exec.exec('sed', ['-i', `'s/{current_version}/{latest_tag}/g'`, '*.yml'], options);
               core.exportVariable('newVersion', latest_tag);
             }
             console.log("Done")
