@@ -47,7 +47,7 @@ jobs:
             };
             options.cwd = './.github/workflows';
 
-            await exec.exec('head', ['-1', 'setup.yml'], options);
+            await exec('head', ['-1', 'setup.yml'], options);
 
             console.log(out)
 
