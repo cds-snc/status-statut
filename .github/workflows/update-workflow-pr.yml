@@ -49,7 +49,7 @@ jobs:
 
             const current_version = execOut.split("upptime/uptime-monitor@")[1]
           
-            if(current_version == latest_tag){
+            if(current_version.trim() == latest_tag.trim()){
               console.log("No update required, latest tag is: ",latest_tag)
             } else {
               console.log("Updating to: ", latest_tag)
