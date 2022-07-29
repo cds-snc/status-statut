@@ -1,8 +1,6 @@
 name: Update workflows with PR
 on:
-  pull_requests:
-    branches:
-      - main
+  - pull_requests
 
 jobs:
   open_pr:
