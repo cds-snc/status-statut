@@ -33,15 +33,7 @@ jobs:
             let execError = '';
 
             const options = {};
-            options.listeners = {
-              stdout: (data: Buffer) => {
-                execOut += data.toString();
-              },
-              stderr: (data: Buffer) => {
-                execError += data.toString();
-              }
-            };
-            options.cwd = './.github/workflows';
+
 
             await exec.exec('head', ['-1', 'setup.yml'], options);
 
