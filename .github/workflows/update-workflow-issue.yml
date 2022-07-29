@@ -57,7 +57,7 @@ jobs:
             }
       - name: Create Issue
         uses: JasonEtco/create-an-issue@v2
-        if: ${{ env.newVersion }} != 'false'
+        if: env.newVersion != 'false'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
