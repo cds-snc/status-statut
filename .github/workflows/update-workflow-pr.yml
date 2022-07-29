@@ -6,7 +6,10 @@ jobs:
   open_pr:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v6
+      - name: Checkout
+        uses: actions/checkout@v2.3.3
+      - name: Generate PR
+        uses: actions/github-script@v6
         with:
           script: |
             const query = `query($owner:String!, $name:String!) {
