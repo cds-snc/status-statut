@@ -30,10 +30,14 @@ jobs:
             console.log(latest_tag)
 
             let execOut = '';
-            let execError = '';
 
             const options = {};
-
+            options.listeners = {
+              stdout: (data: Buffer) => {
+                execOut += data.toString();
+              }
+            };
+            options.cwd = './.github/workflows';
 
             await exec.exec('head', ['-1', 'setup.yml'], options);
 
