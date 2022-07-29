@@ -30,7 +30,6 @@ jobs:
             const result = await github.graphql(query, variables)
             const nodes = result.repository.refs.edges 
             const latest_tag = nodes[0].node.name
-            console.log(latest_tag)
 
             let execOut = '';
             let execError = '';
@@ -49,7 +48,12 @@ jobs:
             await exec.exec('head', ['-1', 'setup.yml'], options);
 
             const current_version = execOut.split("upptime/uptime-monitor@")[1]
-            console.log(current_version)
+          
+            if(current_version === latest_tag){
+              console.log("No update required, latest tag is: ",latest_tag)
+            } else {
+              
+            }
             console.log("Done")
 
 
