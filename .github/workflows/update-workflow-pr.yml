@@ -48,7 +48,8 @@ jobs:
 
             await exec.exec('head', ['-1', 'setup.yml'], options);
 
-            console.log(execOut)
+            const current_version = execOut.split("upptime/uptime-monitor@")[1]
+            console.log(current_version)
             console.log("Done")
 
 
