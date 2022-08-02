@@ -85,7 +85,7 @@ status-website:
   introMessage: Status page for CDS products / Page de statut pour les produits du SNC
   navbar:
     - title: Status / Statut
-      href: /status-statut
+      href: /
     - title: GitHub
       href: https://github.com/$OWNER/$REPO
   theme: dark
