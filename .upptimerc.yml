@@ -18,7 +18,7 @@ sites:
       - patheard
       - dinophile
   - name: GC Articles - Articles GC
-    url: https://articles.alpha.canada.ca/
+    url: https://articles.alpha.canada.ca/sign-in-se-connecter/
     assignees:
       - maxneuvians
       - CalvinRodo
