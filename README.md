@@ -31,6 +31,17 @@ With [Upptime](https://upptime.js.org), you can get your own unlimited and free 
 
 [**Visit our status website →**](https://cds-snc.github.io/status-statut)
 
+## Onboarding
+
+To add a new site update the `sites` key in [.upptimerc.yml](https://github.com/cds-snc/status-statut/blob/main/.upptimerc.yml#L5) with a new entry:
+```yaml
+  - name: Your site name
+    url: https://your-site-url.ca
+    assignees:
+      - github-username-to-notify
+      - another-github-username-to-notify      
+```
+
 ## 📄 License
 
 - Powered by: [Upptime](https://github.com/upptime/upptime)
