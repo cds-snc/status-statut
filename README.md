@@ -33,10 +33,10 @@ With [Upptime](https://upptime.js.org), you can get your own unlimited and free 
 
 ## Onboarding
 
-To add a new site, update the `sites` key in [.upptimerc.yml](https://github.com/cds-snc/status-statut/blob/main/.upptimerc.yml#L5) with a new site:
+To add a new site update the `sites` key in [.upptimerc.yml](https://github.com/cds-snc/status-statut/blob/main/.upptimerc.yml#L5) with a new entry:
 ```yaml
-  - name: Site name
-    url: https://your-sites-url.ca
+  - name: Your site name
+    url: https://your-site-url.ca
     assignees:
       - github-username-to-notify
       - another-github-username-to-notify      
