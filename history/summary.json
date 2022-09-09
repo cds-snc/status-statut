@@ -114,9 +114,9 @@
     "url": "https://scan-websites.alpha.canada.ca/",
     "icon": "https://favicons.githubusercontent.com/scan-websites.alpha.canada.ca",
     "slug": "scan-websites",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.99%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
@@ -125,7 +125,9 @@
     "timeWeek": 2573,
     "timeMonth": 3406,
     "timeYear": 3162,
-    "dailyMinutesDown": {}
+    "dailyMinutesDown": {
+      "2022-09-09": 0
+    }
   },
   {
     "name": "Scan files",
