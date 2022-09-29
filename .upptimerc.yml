@@ -126,8 +126,8 @@ i18n:
   averageResponseTimeTitle: Average response / Réponse moyenne
   sevelDayResponseTime: 7-day response time / Délai de réponse de 7 jours
   responseTimeMs: Response time (ms) / Temps de réponse (ms)
-  up: Up / En haut
-  down: Down / En bas
+  up: Up / Opérationnel
+  down: Down / En panne
   degraded: Degraded / Détérioré
   loading: Loading / Chargement
   footer: Canadian Digital Service / Service numérique canadien
