@@ -73,6 +73,13 @@ sites:
       - CalvinRodo
       - patheard
       - dinophile
+  - name: SRE Bot
+    url: https://sre-bot.cdssandbox.xyz/version
+    assignees:
+      - maxneuvians
+      - CalvinRodo
+      - patheard
+      - dinophile
   - name: Learning Resources 
     url: https://learning-resources.cdssandbox.xyz/ 
     assignees:
