@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
       - name: Patch files
-        uses: actions/github-script@v6
+        uses: actions/github-script@7dff1a87643417cf3b95bb10b29f4c4bc60d8ebd # tag=v6
         with:
           script: |
             const query = `query($owner:String!, $name:String!) {
@@ -57,7 +57,7 @@ jobs:
               core.exportVariable('newVersion', latest_tag);
             }
       - name: Create Issue
-        uses: JasonEtco/create-an-issue@v2
+        uses: JasonEtco/create-an-issue@9e6213aec58987fa7d2f4deb8b256b99e63107a2 # tag=v2
         if: env.newVersion != 'false'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
