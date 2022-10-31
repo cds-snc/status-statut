@@ -1,7 +1,7 @@
 url: https://api.notification.canada.ca/
-status: down
-code: 403
-responseTime: 142
-lastUpdated: 2022-10-31T09:06:34.490Z
+status: up
+code: 200
+responseTime: 340
+lastUpdated: 2022-10-31T09:17:07.530Z
 startTime: Mon Jul 25 2022 13:51:22 GMT+0000 (Coordinated Universal Time)
 generator: Upptime <https://github.com/upptime/upptime>
