@@ -38,13 +38,6 @@ sites:
       - CalvinRodo
       - patheard
       - dinophile
-  - name: GC Notify API
-    url: https://api.notification.canada.ca/
-    assignees:
-      - maxneuvians
-      - CalvinRodo
-      - patheard
-      - dinophile
   - name: Scan websites
     url: https://scan-websites.alpha.canada.ca/
     assignees:
