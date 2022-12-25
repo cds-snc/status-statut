@@ -150,19 +150,19 @@
     "url": "https://secret.cdssandbox.xyz/",
     "icon": "https://icons.duckduckgo.com/ip3/secret.cdssandbox.xyz.ico",
     "slug": "share-secrets",
-    "status": "down",
+    "status": "up",
     "uptime": "100.00%",
-    "uptimeDay": "99.97%",
-    "uptimeWeek": "100.00%",
-    "uptimeMonth": "100.00%",
+    "uptimeDay": "99.60%",
+    "uptimeWeek": "99.94%",
+    "uptimeMonth": "99.99%",
     "uptimeYear": "100.00%",
     "time": 487,
-    "timeDay": 617,
-    "timeWeek": 516,
+    "timeDay": 544,
+    "timeWeek": 511,
     "timeMonth": 463,
     "timeYear": 487,
     "dailyMinutesDown": {
-      "2022-12-25": 0
+      "2022-12-25": 6
     }
   },
   {
