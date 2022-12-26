@@ -170,9 +170,9 @@
     "url": "https://share-files.cdssandbox.xyz/healthcheck",
     "icon": "https://icons.duckduckgo.com/ip3/share-files.cdssandbox.xyz.ico",
     "slug": "share-file-securely",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.97%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
@@ -181,7 +181,9 @@
     "timeWeek": 228,
     "timeMonth": 254,
     "timeYear": 299,
-    "dailyMinutesDown": {}
+    "dailyMinutesDown": {
+      "2022-12-26": 0
+    }
   },
   {
     "name": "SRE Bot",
