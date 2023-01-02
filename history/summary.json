@@ -150,9 +150,9 @@
     "url": "https://secret.cdssandbox.xyz/",
     "icon": "https://icons.duckduckgo.com/ip3/secret.cdssandbox.xyz.ico",
     "slug": "share-secrets",
-    "status": "up",
+    "status": "down",
     "uptime": "99.99%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.96%",
     "uptimeWeek": "99.76%",
     "uptimeMonth": "99.93%",
     "uptimeYear": "99.99%",
@@ -162,6 +162,7 @@
     "timeMonth": 615,
     "timeYear": 523,
     "dailyMinutesDown": {
+      "2023-01-02": 1,
       "2022-12-29": 7,
       "2022-12-28": 18,
       "2022-12-25": 6
