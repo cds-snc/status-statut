@@ -172,18 +172,19 @@
     "url": "https://share-files.cdssandbox.xyz/healthcheck",
     "icon": "https://icons.duckduckgo.com/ip3/share-files.cdssandbox.xyz.ico",
     "slug": "share-file-securely",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
-    "uptimeDay": "100.00%",
-    "uptimeWeek": "99.94%",
+    "uptimeDay": "99.95%",
+    "uptimeWeek": "99.99%",
     "uptimeMonth": "99.99%",
     "uptimeYear": "100.00%",
     "time": 297,
     "timeDay": 154,
-    "timeWeek": 277,
+    "timeWeek": 252,
     "timeMonth": 254,
     "timeYear": 297,
     "dailyMinutesDown": {
+      "2023-01-02": 1,
       "2022-12-26": 6
     }
   },
