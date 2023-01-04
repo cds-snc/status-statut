@@ -153,12 +153,12 @@
     "status": "up",
     "uptime": "99.98%",
     "uptimeDay": "100.00%",
-    "uptimeWeek": "99.68%",
+    "uptimeWeek": "99.75%",
     "uptimeMonth": "99.91%",
     "uptimeYear": "99.98%",
     "time": 566,
     "timeDay": 329,
-    "timeWeek": 1629,
+    "timeWeek": 1744,
     "timeMonth": 802,
     "timeYear": 566,
     "dailyMinutesDown": {
@@ -194,9 +194,9 @@
     "url": "https://sre-bot.cdssandbox.xyz/version",
     "icon": "https://icons.duckduckgo.com/ip3/sre-bot.cdssandbox.xyz.ico",
     "slug": "sre-bot",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.98%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
@@ -205,7 +205,9 @@
     "timeWeek": 234,
     "timeMonth": 241,
     "timeYear": 257,
-    "dailyMinutesDown": {}
+    "dailyMinutesDown": {
+      "2023-01-04": 0
+    }
   },
   {
     "name": "Learning Resources",
