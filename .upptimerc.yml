@@ -82,6 +82,13 @@ sites:
       - dinophile
       - daine
       - dylanzheng94
+  - name: GitHub secret scanning
+    url: https://github-secret-scanning.alpha.canada.ca/healthcheck
+    assignees:
+      - maxneuvians
+      - CalvinRodo
+      - patheard
+      - dinophile
 
 status-website:
   # Add your custom domain name, or remove the `cname` line if you don't have a domain
