@@ -234,5 +234,23 @@
     "timeMonth": 788,
     "timeYear": 425,
     "dailyMinutesDown": {}
+  },
+  {
+    "name": "GitHub secret scanning",
+    "url": "https://github-secret-scanning.alpha.canada.ca/healthcheck",
+    "icon": "https://icons.duckduckgo.com/ip3/github-secret-scanning.alpha.canada.ca.ico",
+    "slug": "git-hub-secret-scanning",
+    "status": "up",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
+    "time": 2727,
+    "timeDay": 2727,
+    "timeWeek": 2727,
+    "timeMonth": 2727,
+    "timeYear": 2727,
+    "dailyMinutesDown": {}
   }
 ]
