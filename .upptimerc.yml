@@ -73,8 +73,17 @@ sites:
       - CalvinRodo
       - patheard
       - dinophile
-  - name: Learning Resources 
-    url: https://learning-resources.cdssandbox.xyz/ 
+  - name: Learning Resources (EN)
+    url: https://resources.alpha.canada.ca/
+    assignees:
+      - maxneuvians
+      - CalvinRodo
+      - patheard
+      - dinophile
+      - daine
+      - dylanzheng94
+  - name: Learning Resources (FR)
+    url: https://ressources.alpha.canada.ca/
     assignees:
       - maxneuvians
       - CalvinRodo
