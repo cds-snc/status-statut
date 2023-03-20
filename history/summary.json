@@ -243,11 +243,11 @@
     "icon": "https://icons.duckduckgo.com/ip3/ressources.alpha.canada.ca.ico",
     "slug": "learning-resources-fr",
     "status": "up",
-    "uptime": "98.52%",
+    "uptime": "98.55%",
     "uptimeDay": "100.00%",
     "uptimeWeek": "100.00%",
-    "uptimeMonth": "98.52%",
-    "uptimeYear": "98.52%",
+    "uptimeMonth": "98.55%",
+    "uptimeYear": "98.55%",
     "time": 406,
     "timeDay": 257,
     "timeWeek": 292,
@@ -262,17 +262,19 @@
     "url": "https://github-secret-scanning.alpha.canada.ca/healthcheck",
     "icon": "https://icons.duckduckgo.com/ip3/github-secret-scanning.alpha.canada.ca.ico",
     "slug": "git-hub-secret-scanning",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.98%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 2423,
-    "timeDay": 2422,
-    "timeWeek": 2344,
-    "timeMonth": 2346,
-    "timeYear": 2423,
-    "dailyMinutesDown": {}
+    "time": 2784,
+    "timeDay": 8927,
+    "timeWeek": 3980,
+    "timeMonth": 2797,
+    "timeYear": 2784,
+    "dailyMinutesDown": {
+      "2023-03-20": 0
+    }
   }
 ]
