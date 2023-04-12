@@ -52,8 +52,8 @@ sites:
       - CalvinRodo
       - patheard
       - dinophile
-  - name: Share secrets
-    url: https://secret.cdssandbox.xyz/
+  - name: Share encrypted messages
+    url: https://encrypted-message.cdssandbox.xyz/
     assignees:
       - maxneuvians
       - CalvinRodo
