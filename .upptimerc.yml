@@ -73,24 +73,6 @@ sites:
       - CalvinRodo
       - patheard
       - dinophile
-  - name: Learning Resources (EN)
-    url: https://resources.alpha.canada.ca/
-    assignees:
-      - maxneuvians
-      - CalvinRodo
-      - patheard
-      - dinophile
-      - daine
-      - dylanzheng94
-  - name: Learning Resources (FR)
-    url: https://ressources.alpha.canada.ca/
-    assignees:
-      - maxneuvians
-      - CalvinRodo
-      - patheard
-      - dinophile
-      - daine
-      - dylanzheng94
   - name: GitHub secret scanning
     url: https://github-secret-scanning.alpha.canada.ca/healthcheck
     assignees:
