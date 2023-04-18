@@ -73,6 +73,13 @@ sites:
       - CalvinRodo
       - patheard
       - dinophile
+  - name: URL Shortener
+    url: https://url-shortener.cdssandbox.xyz/healthcheck
+    assignees:
+      - maxneuvians
+      - cgye
+      - patheard
+      - dinophile      
   - name: GitHub secret scanning
     url: https://github-secret-scanning.alpha.canada.ca/healthcheck
     assignees:
