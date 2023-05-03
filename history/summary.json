@@ -193,18 +193,20 @@
     "url": "https://o.alpha.canada.ca/healthcheck",
     "icon": "https://icons.duckduckgo.com/ip3/o.alpha.canada.ca.ico",
     "slug": "url-shortener",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.97%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 304,
-    "timeDay": 445,
-    "timeWeek": 323,
-    "timeMonth": 304,
-    "timeYear": 304,
-    "dailyMinutesDown": {}
+    "time": 307,
+    "timeDay": 405,
+    "timeWeek": 328,
+    "timeMonth": 307,
+    "timeYear": 307,
+    "dailyMinutesDown": {
+      "2023-05-03": 0
+    }
   },
   {
     "name": "GitHub secret scanning",
