@@ -227,5 +227,23 @@
     "dailyMinutesDown": {
       "2023-03-20": 10
     }
+  },
+  {
+    "name": "Saas Procurement",
+    "url": "https://saas.cdssandbox.xyz/health",
+    "icon": "https://icons.duckduckgo.com/ip3/saas.cdssandbox.xyz.ico",
+    "slug": "saas-procurement",
+    "status": "up",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
+    "time": 375,
+    "timeDay": 375,
+    "timeWeek": 375,
+    "timeMonth": 375,
+    "timeYear": 375,
+    "dailyMinutesDown": {}
   }
 ]
