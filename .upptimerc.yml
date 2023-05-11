@@ -67,7 +67,7 @@ sites:
       - patheard
       - dinophile
   - name: URL Shortener
-    url: https://o.alpha.canada.ca/healthcheck
+    url: https://o.alpha.canada.ca/version
     assignees:
       - maxneuvians
       - cgye
