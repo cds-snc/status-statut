@@ -202,7 +202,7 @@
     "time": 317,
     "timeDay": 263,
     "timeWeek": 298,
-    "timeMonth": 317,
+    "timeMonth": 319,
     "timeYear": 317,
     "dailyMinutesDown": {
       "2023-05-03": 7
@@ -234,17 +234,19 @@
     "url": "https://saas.cdssandbox.xyz/health",
     "icon": "https://icons.duckduckgo.com/ip3/saas.cdssandbox.xyz.ico",
     "slug": "saas-procurement",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.97%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
     "time": 261,
-    "timeDay": 111,
-    "timeWeek": 227,
+    "timeDay": 187,
+    "timeWeek": 232,
     "timeMonth": 261,
     "timeYear": 261,
-    "dailyMinutesDown": {}
+    "dailyMinutesDown": {
+      "2023-05-18": 0
+    }
   }
 ]
