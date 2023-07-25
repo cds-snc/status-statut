@@ -32,7 +32,7 @@
     "timeDay": 161,
     "timeWeek": 149,
     "timeMonth": 126,
-    "timeYear": 136,
+    "timeYear": 135,
     "dailyMinutesDown": {}
   },
   {
@@ -50,7 +50,7 @@
     "timeDay": 818,
     "timeWeek": 717,
     "timeMonth": 712,
-    "timeYear": 718,
+    "timeYear": 716,
     "dailyMinutesDown": {
       "2023-01-13": 7
     }
@@ -94,7 +94,7 @@
     "timeDay": 485,
     "timeWeek": 780,
     "timeMonth": 513,
-    "timeYear": 554,
+    "timeYear": 555,
     "dailyMinutesDown": {
       "2023-01-13": 7,
       "2022-10-03": 43
@@ -235,19 +235,19 @@
     "url": "https://saas.cdssandbox.xyz/health",
     "icon": "https://icons.duckduckgo.com/ip3/saas.cdssandbox.xyz.ico",
     "slug": "saas-procurement",
-    "status": "down",
-    "uptime": "99.96%",
-    "uptimeDay": "99.44%",
-    "uptimeWeek": "99.92%",
-    "uptimeMonth": "99.98%",
-    "uptimeYear": "99.96%",
-    "time": 217,
-    "timeDay": 147,
-    "timeWeek": 219,
-    "timeMonth": 212,
-    "timeYear": 217,
+    "status": "up",
+    "uptime": "99.04%",
+    "uptimeDay": "27.52%",
+    "uptimeWeek": "89.65%",
+    "uptimeMonth": "97.62%",
+    "uptimeYear": "99.04%",
+    "time": 216,
+    "timeDay": 139,
+    "timeWeek": 209,
+    "timeMonth": 209,
+    "timeYear": 216,
     "dailyMinutesDown": {
-      "2023-07-25": 0,
+      "2023-07-25": 1036,
       "2023-07-24": 8,
       "2023-06-06": 31,
       "2023-05-18": 9
