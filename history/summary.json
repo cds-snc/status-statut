@@ -4,19 +4,19 @@
     "url": "https://digital.canada.ca/",
     "icon": "https://icons.duckduckgo.com/ip3/digital.canada.ca.ico",
     "slug": "digital-canada-ca",
-    "status": "down",
+    "status": "up",
     "uptime": "100.00%",
-    "uptimeDay": "99.98%",
-    "uptimeWeek": "100.00%",
-    "uptimeMonth": "100.00%",
+    "uptimeDay": "99.57%",
+    "uptimeWeek": "99.94%",
+    "uptimeMonth": "99.99%",
     "uptimeYear": "100.00%",
     "time": 165,
-    "timeDay": 167,
-    "timeWeek": 168,
-    "timeMonth": 156,
+    "timeDay": 146,
+    "timeWeek": 161,
+    "timeMonth": 155,
     "timeYear": 166,
     "dailyMinutesDown": {
-      "2023-08-13": 0
+      "2023-08-13": 6
     }
   },
   {
