@@ -66,13 +66,6 @@ sites:
       - CalvinRodo
       - patheard
       - dinophile
-  - name: URL Shortener
-    url: https://o.alpha.canada.ca/version
-    assignees:
-      - maxneuvians
-      - cgye
-      - patheard
-      - dinophile      
   - name: GitHub secret scanning
     url: https://github-secret-scanning.alpha.canada.ca/healthcheck
     assignees:
