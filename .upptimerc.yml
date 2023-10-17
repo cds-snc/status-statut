@@ -52,13 +52,6 @@ sites:
       - CalvinRodo
       - patheard
       - dinophile
-  - name: Share file securely
-    url: https://share-files.cdssandbox.xyz/healthcheck
-    assignees:
-      - maxneuvians
-      - CalvinRodo
-      - patheard
-      - dinophile
   - name: SRE Bot
     url: https://sre-bot.cdssandbox.xyz/version
     assignees:
