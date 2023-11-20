@@ -4,9 +4,9 @@
     "url": "https://digital.canada.ca/",
     "icon": "https://icons.duckduckgo.com/ip3/digital.canada.ca.ico",
     "slug": "digital-canada-ca",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.98%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
@@ -16,6 +16,7 @@
     "timeMonth": 126,
     "timeYear": 154,
     "dailyMinutesDown": {
+      "2023-11-20": 0,
       "2023-08-13": 6
     }
   },
@@ -24,9 +25,9 @@
     "url": "https://numerique.canada.ca/",
     "icon": "https://icons.duckduckgo.com/ip3/numerique.canada.ca.ico",
     "slug": "numerique-canada-ca",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.98%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
@@ -35,7 +36,9 @@
     "timeWeek": 101,
     "timeMonth": 116,
     "timeYear": 133,
-    "dailyMinutesDown": {}
+    "dailyMinutesDown": {
+      "2023-11-20": 0
+    }
   },
   {
     "name": "GC Articles - Articles GC",
