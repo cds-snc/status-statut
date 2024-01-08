@@ -26,7 +26,7 @@ jobs:
           ref: ${{ github.head_ref }}
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Generate site
-        uses: upptime/uptime-monitor@1f97be7448c7db0e366bbebd67f87f72b220c6fc # v1.33.0
+        uses: upptime/uptime-monitor@eb5f3830ae786247a5175f2570cc75f021d3e2ea # v1.35.0
         with:
           command: "site"
         env:
