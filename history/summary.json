@@ -11,10 +11,10 @@
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
     "time": 154,
-    "timeDay": 161,
-    "timeWeek": 118,
-    "timeMonth": 114,
-    "timeYear": 154,
+    "timeDay": 521,
+    "timeWeek": 181,
+    "timeMonth": 129,
+    "timeYear": 155,
     "dailyMinutesDown": {
       "2023-11-20": 10,
       "2023-08-13": 6
@@ -32,10 +32,10 @@
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
     "time": 133,
-    "timeDay": 164,
-    "timeWeek": 118,
-    "timeMonth": 119,
-    "timeYear": 132,
+    "timeDay": 104,
+    "timeWeek": 123,
+    "timeMonth": 120,
+    "timeYear": 131,
     "dailyMinutesDown": {
       "2023-11-20": 10
     }
@@ -51,14 +51,12 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 708,
-    "timeDay": 687,
-    "timeWeek": 688,
-    "timeMonth": 565,
+    "time": 707,
+    "timeDay": 519,
+    "timeWeek": 687,
+    "timeMonth": 566,
     "timeYear": 706,
-    "dailyMinutesDown": {
-      "2023-01-13": 7
-    }
+    "dailyMinutesDown": {}
   },
   {
     "name": "GC Forms - Formulaires GC",
@@ -72,15 +70,14 @@
     "uptimeMonth": "100.00%",
     "uptimeYear": "99.98%",
     "time": 333,
-    "timeDay": 518,
-    "timeWeek": 403,
-    "timeMonth": 321,
-    "timeYear": 333,
+    "timeDay": 211,
+    "timeWeek": 400,
+    "timeMonth": 323,
+    "timeYear": 332,
     "dailyMinutesDown": {
       "2023-08-16": 52,
       "2023-06-19": 60,
-      "2023-04-17": 13,
-      "2023-01-13": 7
+      "2023-04-17": 13
     }
   },
   {
@@ -95,13 +92,11 @@
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
     "time": 683,
-    "timeDay": 2892,
-    "timeWeek": 1403,
-    "timeMonth": 1063,
-    "timeYear": 741,
-    "dailyMinutesDown": {
-      "2023-01-13": 7
-    }
+    "timeDay": 214,
+    "timeWeek": 1080,
+    "timeMonth": 1064,
+    "timeYear": 740,
+    "dailyMinutesDown": {}
   },
   {
     "name": "Scan files",
@@ -115,15 +110,14 @@
     "uptimeMonth": "100.00%",
     "uptimeYear": "99.99%",
     "time": 335,
-    "timeDay": 808,
-    "timeWeek": 446,
+    "timeDay": 275,
+    "timeWeek": 456,
     "timeMonth": 295,
-    "timeYear": 330,
+    "timeYear": 329,
     "dailyMinutesDown": {
       "2023-12-10": 9,
       "2023-03-02": 7,
-      "2023-03-01": 5,
-      "2023-01-13": 7
+      "2023-03-01": 5
     }
   },
   {
@@ -137,11 +131,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 541,
-    "timeDay": 688,
-    "timeWeek": 598,
+    "time": 540,
+    "timeDay": 418,
+    "timeWeek": 605,
     "timeMonth": 485,
-    "timeYear": 541,
+    "timeYear": 540,
     "dailyMinutesDown": {}
   },
   {
@@ -155,11 +149,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 263,
-    "timeDay": 400,
-    "timeWeek": 341,
-    "timeMonth": 245,
-    "timeYear": 264,
+    "time": 262,
+    "timeDay": 230,
+    "timeWeek": 354,
+    "timeMonth": 248,
+    "timeYear": 263,
     "dailyMinutesDown": {
       "2023-04-26": 8
     }
@@ -175,11 +169,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "99.99%",
-    "time": 2637,
-    "timeDay": 3536,
-    "timeWeek": 2857,
-    "timeMonth": 3075,
-    "timeYear": 2637,
+    "time": 2638,
+    "timeDay": 3081,
+    "timeWeek": 2864,
+    "timeMonth": 3066,
+    "timeYear": 2638,
     "dailyMinutesDown": {
       "2023-11-15": 6,
       "2023-10-04": 6,
@@ -199,9 +193,9 @@
     "uptimeMonth": "100.00%",
     "uptimeYear": "99.68%",
     "time": 212,
-    "timeDay": 256,
-    "timeWeek": 236,
-    "timeMonth": 196,
+    "timeDay": 150,
+    "timeWeek": 233,
+    "timeMonth": 197,
     "timeYear": 212,
     "dailyMinutesDown": {
       "2023-10-25": 56,
