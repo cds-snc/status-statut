@@ -125,19 +125,19 @@
     "url": "https://encrypted-message.cdssandbox.xyz/",
     "icon": "https://icons.duckduckgo.com/ip3/encrypted-message.cdssandbox.xyz.ico",
     "slug": "share-encrypted-messages",
-    "status": "down",
+    "status": "up",
     "uptime": "100.00%",
-    "uptimeDay": "99.98%",
-    "uptimeWeek": "100.00%",
-    "uptimeMonth": "100.00%",
+    "uptimeDay": "99.33%",
+    "uptimeWeek": "99.90%",
+    "uptimeMonth": "99.98%",
     "uptimeYear": "100.00%",
     "time": 537,
-    "timeDay": 414,
-    "timeWeek": 478,
-    "timeMonth": 494,
+    "timeDay": 389,
+    "timeWeek": 464,
+    "timeMonth": 490,
     "timeYear": 537,
     "dailyMinutesDown": {
-      "2024-01-23": 0
+      "2024-01-23": 10
     }
   },
   {
