@@ -125,9 +125,9 @@
     "url": "https://encrypted-message.cdssandbox.xyz/",
     "icon": "https://icons.duckduckgo.com/ip3/encrypted-message.cdssandbox.xyz.ico",
     "slug": "share-encrypted-messages",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.98%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
@@ -136,7 +136,9 @@
     "timeWeek": 478,
     "timeMonth": 494,
     "timeYear": 537,
-    "dailyMinutesDown": {}
+    "dailyMinutesDown": {
+      "2024-01-23": 0
+    }
   },
   {
     "name": "SRE Bot",
@@ -187,11 +189,11 @@
     "icon": "https://icons.duckduckgo.com/ip3/saas.cdssandbox.xyz.ico",
     "slug": "saas-procurement",
     "status": "up",
-    "uptime": "99.69%",
+    "uptime": "99.70%",
     "uptimeDay": "100.00%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
-    "uptimeYear": "99.69%",
+    "uptimeYear": "99.70%",
     "time": 211,
     "timeDay": 141,
     "timeWeek": 195,
