@@ -6,72 +6,78 @@ sites:
   - name: digital.canada.ca
     url: https://digital.canada.ca/
     assignees:
-      - maxneuvians
+      - omartehsin1
       - CalvinRodo
       - patheard
       - dinophile
   - name: numerique.canada.ca
     url: https://numerique.canada.ca/
     assignees:
-      - maxneuvians
+      - omartehsin1
       - CalvinRodo
       - patheard
       - dinophile
   - name: GC Articles - Articles GC
     url: https://articles.alpha.canada.ca/sign-in-se-connecter/
     assignees:
-      - maxneuvians
       - CalvinRodo
       - patheard
       - dinophile
   - name: GC Forms - Formulaires GC
     url: https://forms-formulaires.alpha.canada.ca/
+    __dangerous__body_down: "site-unavailable"
     assignees:
-      - maxneuvians
+      - bryan-robitaille
+      - craigzour
       - CalvinRodo
       - patheard
       - dinophile
   - name: GC Notify
     url: https://notification.canada.ca/
     assignees:
-      - maxneuvians
+      - ben851
+      - sastels
+      - jimleroyer
       - CalvinRodo
       - patheard
       - dinophile
   - name: Scan files
     url: https://scan-files.alpha.canada.ca/healthcheck
     assignees:
-      - maxneuvians
       - CalvinRodo
       - patheard
       - dinophile
+      - sylviamclaughlin 
+      - gcharest 
   - name: Share encrypted messages
     url: https://encrypted-message.cdssandbox.xyz/
     assignees:
-      - maxneuvians
       - CalvinRodo
       - patheard
       - dinophile
+      - sylviamclaughlin 
+      - gcharest 
   - name: SRE Bot
     url: https://sre-bot.cdssandbox.xyz/version
     assignees:
-      - maxneuvians
       - CalvinRodo
       - patheard
       - dinophile
+      - sylviamclaughlin 
+      - gcharest 
   - name: GitHub secret scanning
     url: https://github-secret-scanning.alpha.canada.ca/healthcheck
     assignees:
-      - maxneuvians
       - CalvinRodo
       - patheard
       - dinophile
+      - sylviamclaughlin 
+      - gcharest 
   - name: Saas Procurement 
     url: https://saas.cdssandbox.xyz/health 
     assignees:
       - sylviamclaughlin 
-      - gcharest 
-      - maxneuvians
+      - gcharest
       - CalvinRodo
 
 status-website:
