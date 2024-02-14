@@ -86,19 +86,19 @@
     "url": "https://notification.canada.ca/",
     "icon": "https://icons.duckduckgo.com/ip3/notification.canada.ca.ico",
     "slug": "gc-notify",
-    "status": "down",
+    "status": "up",
     "uptime": "99.99%",
-    "uptimeDay": "99.97%",
-    "uptimeWeek": "100.00%",
-    "uptimeMonth": "100.00%",
+    "uptimeDay": "99.59%",
+    "uptimeWeek": "99.94%",
+    "uptimeMonth": "99.99%",
     "uptimeYear": "100.00%",
     "time": 706,
-    "timeDay": 5325,
-    "timeWeek": 1679,
-    "timeMonth": 834,
+    "timeDay": 3742,
+    "timeWeek": 1556,
+    "timeMonth": 826,
     "timeYear": 757,
     "dailyMinutesDown": {
-      "2024-02-14": 0
+      "2024-02-14": 6
     }
   },
   {
