@@ -5,7 +5,11 @@ metadata:
   description: Status page for CDS products / Page de statut pour les produits du SNC
   labels:
     license: MIT
+  links:
+    - url: "https://status-statut.cds-snc.ca/"
 spec:
   type: website
   lifecycle: experimental
-  owner: cds-snc
+  owner: group:cds-snc/internal-sre
+  domain: site-reliability-engineering
+  system: cds-alm
