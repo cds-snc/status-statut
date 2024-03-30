@@ -45,19 +45,19 @@
     "url": "https://articles.alpha.canada.ca/sign-in-se-connecter/",
     "icon": "https://icons.duckduckgo.com/ip3/articles.alpha.canada.ca.ico",
     "slug": "gc-articles-articles-gc",
-    "status": "down",
+    "status": "up",
     "uptime": "100.00%",
-    "uptimeDay": "99.97%",
-    "uptimeWeek": "100.00%",
-    "uptimeMonth": "100.00%",
+    "uptimeDay": "99.52%",
+    "uptimeWeek": "99.93%",
+    "uptimeMonth": "99.98%",
     "uptimeYear": "100.00%",
     "time": 695,
-    "timeDay": 2591,
-    "timeWeek": 1139,
-    "timeMonth": 761,
+    "timeDay": 1940,
+    "timeWeek": 1076,
+    "timeMonth": 757,
     "timeYear": 673,
     "dailyMinutesDown": {
-      "2024-03-30": 0
+      "2024-03-30": 7
     }
   },
   {
