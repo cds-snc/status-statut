@@ -45,18 +45,20 @@
     "url": "https://articles.alpha.canada.ca/sign-in-se-connecter/",
     "icon": "https://icons.duckduckgo.com/ip3/articles.alpha.canada.ca.ico",
     "slug": "gc-articles-articles-gc",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.97%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 688,
-    "timeDay": 740,
-    "timeWeek": 589,
-    "timeMonth": 634,
-    "timeYear": 662,
-    "dailyMinutesDown": {}
+    "time": 695,
+    "timeDay": 2591,
+    "timeWeek": 1139,
+    "timeMonth": 761,
+    "timeYear": 673,
+    "dailyMinutesDown": {
+      "2024-03-30": 0
+    }
   },
   {
     "name": "GC Forms - Formulaires GC",
