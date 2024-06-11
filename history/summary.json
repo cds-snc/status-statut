@@ -10,10 +10,10 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 143,
-    "timeDay": 163,
-    "timeWeek": 102,
-    "timeMonth": 113,
+    "time": 142,
+    "timeDay": 82,
+    "timeWeek": 99,
+    "timeMonth": 112,
     "timeYear": 131,
     "dailyMinutesDown": {
       "2023-11-20": 10,
@@ -32,10 +32,10 @@
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
     "time": 128,
-    "timeDay": 112,
-    "timeWeek": 116,
-    "timeMonth": 117,
-    "timeYear": 129,
+    "timeDay": 77,
+    "timeWeek": 112,
+    "timeMonth": 116,
+    "timeYear": 128,
     "dailyMinutesDown": {
       "2023-11-20": 10
     }
@@ -52,10 +52,10 @@
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
     "time": 686,
-    "timeDay": 649,
-    "timeWeek": 666,
-    "timeMonth": 634,
-    "timeYear": 654,
+    "timeDay": 512,
+    "timeWeek": 674,
+    "timeMonth": 636,
+    "timeYear": 652,
     "dailyMinutesDown": {
       "2024-03-30": 7
     }
@@ -72,10 +72,10 @@
     "uptimeMonth": "100.00%",
     "uptimeYear": "99.97%",
     "time": 321,
-    "timeDay": 647,
-    "timeWeek": 344,
-    "timeMonth": 298,
-    "timeYear": 317,
+    "timeDay": 224,
+    "timeWeek": 346,
+    "timeMonth": 299,
+    "timeYear": 316,
     "dailyMinutesDown": {
       "2024-01-25": 25,
       "2023-08-16": 52,
@@ -94,10 +94,10 @@
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
     "time": 724,
-    "timeDay": 586,
-    "timeWeek": 993,
-    "timeMonth": 613,
-    "timeYear": 780,
+    "timeDay": 251,
+    "timeWeek": 992,
+    "timeMonth": 615,
+    "timeYear": 779,
     "dailyMinutesDown": {
       "2024-02-14": 6
     }
@@ -114,10 +114,10 @@
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
     "time": 313,
-    "timeDay": 383,
-    "timeWeek": 266,
+    "timeDay": 184,
+    "timeWeek": 264,
     "timeMonth": 307,
-    "timeYear": 308,
+    "timeYear": 306,
     "dailyMinutesDown": {
       "2023-12-10": 9
     }
@@ -133,11 +133,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 409,
-    "timeDay": 68,
-    "timeWeek": 111,
-    "timeMonth": 157,
-    "timeYear": 393,
+    "time": 408,
+    "timeDay": 167,
+    "timeWeek": 117,
+    "timeMonth": 159,
+    "timeYear": 391,
     "dailyMinutesDown": {
       "2024-01-23": 10
     }
@@ -154,9 +154,9 @@
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
     "time": 253,
-    "timeDay": 355,
-    "timeWeek": 240,
-    "timeMonth": 231,
+    "timeDay": 162,
+    "timeWeek": 242,
+    "timeMonth": 232,
     "timeYear": 254,
     "dailyMinutesDown": {}
   },
@@ -171,46 +171,17 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "99.99%",
-    "time": 2731,
-    "timeDay": 3556,
-    "timeWeek": 2778,
-    "timeMonth": 3062,
-    "timeYear": 2800,
+    "time": 2726,
+    "timeDay": 216,
+    "timeWeek": 2312,
+    "timeMonth": 2963,
+    "timeYear": 2794,
     "dailyMinutesDown": {
       "2024-03-07": 7,
       "2024-02-24": 6,
       "2024-02-06": 12,
       "2023-11-15": 6,
       "2023-10-04": 6
-    }
-  },
-  {
-    "name": "Saas Procurement",
-    "url": "https://saas.cdssandbox.xyz/health",
-    "icon": "https://icons.duckduckgo.com/ip3/saas.cdssandbox.xyz.ico",
-    "slug": "saas-procurement",
-    "status": "down",
-    "uptime": "98.53%",
-    "uptimeDay": "0.00%",
-    "uptimeWeek": "27.84%",
-    "uptimeMonth": "83.40%",
-    "uptimeYear": "98.41%",
-    "time": 205,
-    "timeDay": 0,
-    "timeWeek": 121,
-    "timeMonth": 189,
-    "timeYear": 205,
-    "dailyMinutesDown": {
-      "2024-06-10": 17,
-      "2024-06-09": 1440,
-      "2024-06-08": 1440,
-      "2024-06-07": 1440,
-      "2024-06-06": 1440,
-      "2024-06-05": 1440,
-      "2024-06-04": 57,
-      "2023-10-25": 56,
-      "2023-07-25": 1036,
-      "2023-07-24": 8
     }
   }
 ]
