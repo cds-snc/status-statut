@@ -147,18 +147,20 @@
     "url": "https://sre-bot.cdssandbox.xyz/version",
     "icon": "https://icons.duckduckgo.com/ip3/sre-bot.cdssandbox.xyz.ico",
     "slug": "sre-bot",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.97%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 253,
-    "timeDay": 160,
-    "timeWeek": 214,
-    "timeMonth": 233,
+    "time": 252,
+    "timeDay": 164,
+    "timeWeek": 208,
+    "timeMonth": 231,
     "timeYear": 253,
-    "dailyMinutesDown": {}
+    "dailyMinutesDown": {
+      "2024-06-12": 0
+    }
   },
   {
     "name": "GitHub secret scanning",
