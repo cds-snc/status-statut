@@ -1,10 +1,7 @@
 name: Workflow failure
 
 on:
-  workflow_run:
-    workflows: ["*"]
-    types:
-      - completed
+  workflow_dispatch:
 
 jobs:
   on-failure:
