@@ -25,7 +25,7 @@ jobs:
           ref: ${{ github.head_ref }}
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Update response time
-        uses: upptime/uptime-monitor@2735e1b2bb69e63b987844dd8db29a0315e66b33 # v1.37.0
+        uses: upptime/uptime-monitor@75b0413ab8fd16c2c9be1048818805d67f53ac2f # v1.38.0
         with:
           command: "response-time"
         env:
