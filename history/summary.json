@@ -11,8 +11,8 @@
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
     "time": 131,
-    "timeDay": 126,
-    "timeWeek": 144,
+    "timeDay": 137,
+    "timeWeek": 142,
     "timeMonth": 125,
     "timeYear": 125,
     "dailyMinutesDown": {
@@ -31,9 +31,9 @@
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
     "time": 128,
-    "timeDay": 147,
-    "timeWeek": 126,
-    "timeMonth": 127,
+    "timeDay": 107,
+    "timeWeek": 108,
+    "timeMonth": 126,
     "timeYear": 127,
     "dailyMinutesDown": {
       "2023-11-20": 10
@@ -50,10 +50,10 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 658,
-    "timeDay": 600,
-    "timeWeek": 626,
-    "timeMonth": 665,
+    "time": 657,
+    "timeDay": 624,
+    "timeWeek": 597,
+    "timeMonth": 660,
     "timeYear": 631,
     "dailyMinutesDown": {
       "2024-03-30": 7
@@ -71,9 +71,9 @@
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
     "time": 313,
-    "timeDay": 251,
-    "timeWeek": 275,
-    "timeMonth": 308,
+    "timeDay": 263,
+    "timeWeek": 230,
+    "timeMonth": 300,
     "timeYear": 312,
     "dailyMinutesDown": {
       "2024-01-25": 25
@@ -90,11 +90,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 818,
-    "timeDay": 413,
-    "timeWeek": 855,
-    "timeMonth": 696,
-    "timeYear": 870,
+    "time": 816,
+    "timeDay": 239,
+    "timeWeek": 787,
+    "timeMonth": 684,
+    "timeYear": 866,
     "dailyMinutesDown": {
       "2024-02-14": 6
     }
@@ -111,9 +111,9 @@
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
     "time": 302,
-    "timeDay": 188,
-    "timeWeek": 238,
-    "timeMonth": 263,
+    "timeDay": 226,
+    "timeWeek": 209,
+    "timeMonth": 259,
     "timeYear": 297,
     "dailyMinutesDown": {
       "2023-12-10": 9
@@ -130,11 +130,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 365,
-    "timeDay": 120,
-    "timeWeek": 145,
-    "timeMonth": 168,
-    "timeYear": 292,
+    "time": 364,
+    "timeDay": 140,
+    "timeWeek": 138,
+    "timeMonth": 171,
+    "timeYear": 291,
     "dailyMinutesDown": {
       "2024-01-23": 10
     }
@@ -151,9 +151,9 @@
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
     "time": 250,
-    "timeDay": 201,
-    "timeWeek": 220,
-    "timeMonth": 237,
+    "timeDay": 172,
+    "timeWeek": 184,
+    "timeMonth": 228,
     "timeYear": 246,
     "dailyMinutesDown": {
       "2024-06-12": 9
@@ -166,14 +166,14 @@
     "slug": "git-hub-secret-scanning",
     "status": "up",
     "uptime": "99.98%",
-    "uptimeDay": "96.67%",
+    "uptimeDay": "100.00%",
     "uptimeWeek": "99.52%",
     "uptimeMonth": "99.89%",
     "uptimeYear": "99.98%",
     "time": 2743,
-    "timeDay": 1126,
-    "timeWeek": 2077,
-    "timeMonth": 2352,
+    "timeDay": 3261,
+    "timeWeek": 2133,
+    "timeMonth": 2342,
     "timeYear": 2846,
     "dailyMinutesDown": {
       "2024-09-04": 48,
