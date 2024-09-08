@@ -11,9 +11,9 @@
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
     "time": 131,
-    "timeDay": 169,
-    "timeWeek": 136,
-    "timeMonth": 127,
+    "timeDay": 99,
+    "timeWeek": 135,
+    "timeMonth": 128,
     "timeYear": 125,
     "dailyMinutesDown": {
       "2023-11-20": 10
@@ -31,9 +31,9 @@
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
     "time": 128,
-    "timeDay": 204,
-    "timeWeek": 123,
-    "timeMonth": 129,
+    "timeDay": 189,
+    "timeWeek": 140,
+    "timeMonth": 132,
     "timeYear": 127,
     "dailyMinutesDown": {
       "2023-11-20": 10
@@ -50,10 +50,10 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 658,
-    "timeDay": 549,
-    "timeWeek": 591,
-    "timeMonth": 659,
+    "time": 657,
+    "timeDay": 520,
+    "timeWeek": 597,
+    "timeMonth": 653,
     "timeYear": 631,
     "dailyMinutesDown": {
       "2024-03-30": 7
@@ -71,9 +71,9 @@
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
     "time": 313,
-    "timeDay": 279,
-    "timeWeek": 237,
-    "timeMonth": 300,
+    "timeDay": 241,
+    "timeWeek": 241,
+    "timeMonth": 301,
     "timeYear": 312,
     "dailyMinutesDown": {
       "2024-01-25": 25
@@ -90,11 +90,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 816,
-    "timeDay": 261,
-    "timeWeek": 788,
-    "timeMonth": 584,
-    "timeYear": 862,
+    "time": 821,
+    "timeDay": 3457,
+    "timeWeek": 748,
+    "timeMonth": 691,
+    "timeYear": 867,
     "dailyMinutesDown": {
       "2024-02-14": 6
     }
@@ -111,9 +111,9 @@
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
     "time": 302,
-    "timeDay": 159,
-    "timeWeek": 200,
-    "timeMonth": 257,
+    "timeDay": 187,
+    "timeWeek": 201,
+    "timeMonth": 255,
     "timeYear": 297,
     "dailyMinutesDown": {
       "2023-12-10": 9
@@ -130,11 +130,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 364,
-    "timeDay": 174,
-    "timeWeek": 143,
-    "timeMonth": 172,
-    "timeYear": 290,
+    "time": 363,
+    "timeDay": 133,
+    "timeWeek": 146,
+    "timeMonth": 163,
+    "timeYear": 289,
     "dailyMinutesDown": {
       "2024-01-23": 10
     }
@@ -146,13 +146,13 @@
     "slug": "sre-bot",
     "status": "up",
     "uptime": "100.00%",
-    "uptimeDay": "98.88%",
+    "uptimeDay": "100.00%",
     "uptimeWeek": "99.84%",
     "uptimeMonth": "99.96%",
     "uptimeYear": "100.00%",
     "time": 250,
-    "timeDay": 161,
-    "timeWeek": 177,
+    "timeDay": 181,
+    "timeWeek": 181,
     "timeMonth": 223,
     "timeYear": 245,
     "dailyMinutesDown": {
@@ -166,15 +166,15 @@
     "icon": "https://icons.duckduckgo.com/ip3/github-secret-scanning.alpha.canada.ca.ico",
     "slug": "git-hub-secret-scanning",
     "status": "up",
-    "uptime": "99.98%",
+    "uptime": "99.99%",
     "uptimeDay": "100.00%",
     "uptimeWeek": "99.52%",
     "uptimeMonth": "99.89%",
     "uptimeYear": "99.98%",
-    "time": 2744,
-    "timeDay": 3087,
-    "timeWeek": 2452,
-    "timeMonth": 2336,
+    "time": 2746,
+    "timeDay": 3419,
+    "timeWeek": 2478,
+    "timeMonth": 2356,
     "timeYear": 2845,
     "dailyMinutesDown": {
       "2024-09-04": 48,
