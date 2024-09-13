@@ -72,7 +72,11 @@ sites:
       - patheard
       - dinophile
       - sylviamclaughlin 
-      - gcharest 
+      - gcharest
+  - name: Payload Test
+    url: https://not-valid.cdssandbox.xyz/
+    assignees:
+      - gcharest
 
 status-website:
   # Add your custom domain name, or remove the `cname` line if you don't have a domain
