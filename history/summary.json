@@ -47,12 +47,12 @@
     "status": "up",
     "uptime": "100.00%",
     "uptimeDay": "100.00%",
-    "uptimeWeek": "99.87%",
+    "uptimeWeek": "100.00%",
     "uptimeMonth": "99.97%",
     "uptimeYear": "100.00%",
     "time": 655,
     "timeDay": 455,
-    "timeWeek": 687,
+    "timeWeek": 648,
     "timeMonth": 661,
     "timeYear": 631,
     "dailyMinutesDown": {
@@ -79,6 +79,44 @@
     "dailyMinutesDown": {
       "2024-01-25": 25
     }
+  },
+  {
+    "name": "GC Forms - API",
+    "url": "https://api.forms-formulaires.alpha.canada.ca/status",
+    "icon": "https://icons.duckduckgo.com/ip3/api.forms-formulaires.alpha.canada.ca.ico",
+    "slug": "gc-forms-api",
+    "status": "up",
+    "uptime": "0.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "0.00%",
+    "uptimeMonth": "0.00%",
+    "uptimeYear": "0.00%",
+    "time": 530,
+    "timeDay": 530,
+    "timeWeek": 530,
+    "timeMonth": 530,
+    "timeYear": 530,
+    "dailyMinutesDown": {
+      "2024-09-13": 2
+    }
+  },
+  {
+    "name": "GC Forms - IdP",
+    "url": "https://auth.forms-formulaires.alpha.canada.ca/debug/healthz",
+    "icon": "https://icons.duckduckgo.com/ip3/auth.forms-formulaires.alpha.canada.ca.ico",
+    "slug": "gc-forms-id-p",
+    "status": "up",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
+    "time": 326,
+    "timeDay": 326,
+    "timeWeek": 326,
+    "timeMonth": 326,
+    "timeYear": 326,
+    "dailyMinutesDown": {}
   },
   {
     "name": "GC Notify",
