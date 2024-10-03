@@ -11,8 +11,8 @@
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
     "time": 131,
-    "timeDay": 94,
-    "timeWeek": 155,
+    "timeDay": 115,
+    "timeWeek": 160,
     "timeMonth": 146,
     "timeYear": 126,
     "dailyMinutesDown": {
@@ -31,9 +31,9 @@
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
     "time": 128,
-    "timeDay": 110,
-    "timeWeek": 105,
-    "timeMonth": 133,
+    "timeDay": 106,
+    "timeWeek": 110,
+    "timeMonth": 132,
     "timeYear": 125,
     "dailyMinutesDown": {
       "2023-11-20": 10
@@ -50,11 +50,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "99.97%",
     "uptimeYear": "100.00%",
-    "time": 650,
-    "timeDay": 742,
-    "timeWeek": 607,
-    "timeMonth": 629,
-    "timeYear": 622,
+    "time": 649,
+    "timeDay": 629,
+    "timeWeek": 625,
+    "timeMonth": 628,
+    "timeYear": 623,
     "dailyMinutesDown": {
       "2024-09-12": 13,
       "2024-03-30": 7
@@ -71,11 +71,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 313,
-    "timeDay": 447,
-    "timeWeek": 300,
+    "time": 314,
+    "timeDay": 252,
+    "timeWeek": 304,
     "timeMonth": 314,
-    "timeYear": 308,
+    "timeYear": 309,
     "dailyMinutesDown": {
       "2024-01-25": 25
     }
@@ -91,11 +91,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "99.99%",
     "uptimeYear": "99.99%",
-    "time": 290,
-    "timeDay": 479,
-    "timeWeek": 267,
-    "timeMonth": 290,
-    "timeYear": 290,
+    "time": 286,
+    "timeDay": 225,
+    "timeWeek": 274,
+    "timeMonth": 286,
+    "timeYear": 286,
     "dailyMinutesDown": {
       "2024-09-13": 2
     }
@@ -111,11 +111,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 241,
-    "timeDay": 270,
-    "timeWeek": 251,
-    "timeMonth": 241,
-    "timeYear": 241,
+    "time": 237,
+    "timeDay": 189,
+    "timeWeek": 254,
+    "timeMonth": 237,
+    "timeYear": 237,
     "dailyMinutesDown": {}
   },
   {
@@ -129,11 +129,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 816,
-    "timeDay": 569,
-    "timeWeek": 853,
-    "timeMonth": 572,
-    "timeYear": 834,
+    "time": 814,
+    "timeDay": 279,
+    "timeWeek": 859,
+    "timeMonth": 571,
+    "timeYear": 831,
     "dailyMinutesDown": {
       "2024-02-14": 6
     }
@@ -150,9 +150,9 @@
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
     "time": 299,
-    "timeDay": 460,
+    "timeDay": 185,
     "timeWeek": 275,
-    "timeMonth": 265,
+    "timeMonth": 264,
     "timeYear": 282,
     "dailyMinutesDown": {
       "2023-12-10": 9
@@ -170,9 +170,9 @@
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
     "time": 344,
-    "timeDay": 82,
-    "timeWeek": 159,
-    "timeMonth": 144,
+    "timeDay": 189,
+    "timeWeek": 166,
+    "timeMonth": 145,
     "timeYear": 261,
     "dailyMinutesDown": {
       "2024-01-23": 10
@@ -190,10 +190,10 @@
     "uptimeMonth": "99.96%",
     "uptimeYear": "100.00%",
     "time": 250,
-    "timeDay": 344,
-    "timeWeek": 233,
+    "timeDay": 188,
+    "timeWeek": 241,
     "timeMonth": 236,
-    "timeYear": 244,
+    "timeYear": 243,
     "dailyMinutesDown": {
       "2024-09-06": 16,
       "2024-06-12": 9
@@ -205,24 +205,23 @@
     "icon": "https://icons.duckduckgo.com/ip3/github-secret-scanning.alpha.canada.ca.ico",
     "slug": "git-hub-secret-scanning",
     "status": "up",
-    "uptime": "99.98%",
+    "uptime": "99.99%",
     "uptimeDay": "100.00%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "99.88%",
     "uptimeYear": "99.98%",
-    "time": 2734,
-    "timeDay": 2826,
-    "timeWeek": 2158,
-    "timeMonth": 2225,
-    "timeYear": 2793,
+    "time": 2733,
+    "timeDay": 3008,
+    "timeWeek": 2561,
+    "timeMonth": 2222,
+    "timeYear": 2792,
     "dailyMinutesDown": {
       "2024-09-16": 5,
       "2024-09-04": 48,
       "2024-03-07": 7,
       "2024-02-24": 6,
       "2024-02-06": 12,
-      "2023-11-15": 6,
-      "2023-10-04": 6
+      "2023-11-15": 6
     }
   }
 ]
