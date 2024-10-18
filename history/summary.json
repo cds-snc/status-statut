@@ -11,9 +11,9 @@
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
     "time": 132,
-    "timeDay": 105,
-    "timeWeek": 144,
-    "timeMonth": 145,
+    "timeDay": 176,
+    "timeWeek": 150,
+    "timeMonth": 148,
     "timeYear": 127,
     "dailyMinutesDown": {
       "2023-11-20": 10
@@ -30,10 +30,10 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 129,
-    "timeDay": 99,
-    "timeWeek": 125,
-    "timeMonth": 133,
+    "time": 130,
+    "timeDay": 241,
+    "timeWeek": 140,
+    "timeMonth": 138,
     "timeYear": 126,
     "dailyMinutesDown": {
       "2023-11-20": 10
@@ -50,11 +50,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 650,
-    "timeDay": 596,
-    "timeWeek": 730,
-    "timeMonth": 666,
-    "timeYear": 627,
+    "time": 651,
+    "timeDay": 833,
+    "timeWeek": 757,
+    "timeMonth": 679,
+    "timeYear": 628,
     "dailyMinutesDown": {
       "2024-09-12": 13,
       "2024-03-30": 7
@@ -71,11 +71,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 317,
-    "timeDay": 222,
-    "timeWeek": 390,
-    "timeMonth": 355,
-    "timeYear": 309,
+    "time": 318,
+    "timeDay": 613,
+    "timeWeek": 442,
+    "timeMonth": 369,
+    "timeYear": 310,
     "dailyMinutesDown": {
       "2024-01-25": 25
     }
@@ -91,11 +91,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 310,
-    "timeDay": 159,
-    "timeWeek": 327,
-    "timeMonth": 310,
-    "timeYear": 310,
+    "time": 315,
+    "timeDay": 461,
+    "timeWeek": 363,
+    "timeMonth": 315,
+    "timeYear": 315,
     "dailyMinutesDown": {
       "2024-09-13": 2
     }
@@ -111,11 +111,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 256,
-    "timeDay": 137,
-    "timeWeek": 273,
-    "timeMonth": 256,
-    "timeYear": 256,
+    "time": 259,
+    "timeDay": 329,
+    "timeWeek": 281,
+    "timeMonth": 259,
+    "timeYear": 259,
     "dailyMinutesDown": {}
   },
   {
@@ -129,11 +129,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 814,
-    "timeDay": 248,
-    "timeWeek": 472,
-    "timeMonth": 521,
-    "timeYear": 808,
+    "time": 815,
+    "timeDay": 719,
+    "timeWeek": 539,
+    "timeMonth": 538,
+    "timeYear": 809,
     "dailyMinutesDown": {
       "2024-02-14": 6
     }
@@ -149,11 +149,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 300,
-    "timeDay": 185,
-    "timeWeek": 301,
-    "timeMonth": 293,
-    "timeYear": 282,
+    "time": 301,
+    "timeDay": 539,
+    "timeWeek": 345,
+    "timeMonth": 306,
+    "timeYear": 283,
     "dailyMinutesDown": {
       "2023-12-10": 9
     }
@@ -169,11 +169,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 336,
-    "timeDay": 94,
-    "timeWeek": 115,
-    "timeMonth": 152,
-    "timeYear": 245,
+    "time": 335,
+    "timeDay": 335,
+    "timeWeek": 134,
+    "timeMonth": 160,
+    "timeYear": 244,
     "dailyMinutesDown": {
       "2024-01-23": 10
     }
@@ -189,11 +189,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "99.99%",
     "uptimeYear": "99.99%",
-    "time": 252,
-    "timeDay": 135,
-    "timeWeek": 265,
-    "timeMonth": 263,
-    "timeYear": 243,
+    "time": 253,
+    "timeDay": 444,
+    "timeWeek": 305,
+    "timeMonth": 271,
+    "timeYear": 244,
     "dailyMinutesDown": {
       "2024-10-09": 6,
       "2024-09-06": 16,
@@ -211,11 +211,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "99.98%",
-    "time": 2743,
-    "timeDay": 3178,
-    "timeWeek": 2373,
-    "timeMonth": 2630,
-    "timeYear": 2785,
+    "time": 2744,
+    "timeDay": 3450,
+    "timeWeek": 2435,
+    "timeMonth": 2643,
+    "timeYear": 2786,
     "dailyMinutesDown": {
       "2024-09-16": 5,
       "2024-09-04": 48,
