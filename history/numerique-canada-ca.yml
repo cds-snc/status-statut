@@ -1,7 +1,7 @@
 url: https://numerique.canada.ca/
-status: down
-code: 500
-responseTime: 2132
-lastUpdated: 2024-11-12T04:22:03.460Z
+status: up
+code: 200
+responseTime: 109
+lastUpdated: 2024-11-12T04:31:50.164Z
 startTime: 2022-07-25T13:33:40.000Z
 generator: Upptime <https://github.com/upptime/upptime>
