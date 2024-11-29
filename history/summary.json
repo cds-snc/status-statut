@@ -227,5 +227,23 @@
       "2024-02-24": 6,
       "2024-02-06": 12
     }
+  },
+  {
+    "name": "DC - connect.canada.ca",
+    "url": "https://connect.canada.ca/",
+    "icon": "https://icons.duckduckgo.com/ip3/connect.canada.ca.ico",
+    "slug": "dc-connect-canada-ca",
+    "status": "up",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
+    "time": 90,
+    "timeDay": 90,
+    "timeWeek": 90,
+    "timeMonth": 90,
+    "timeYear": 90,
+    "dailyMinutesDown": {}
   }
 ]
