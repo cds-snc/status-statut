@@ -86,6 +86,13 @@ sites:
       - dinophile
       - sylviamclaughlin 
       - gcharest 
+  - name: DC - connect.canada.ca
+    url: https://connect.canada.ca/
+    assignees:
+      - MahamoudTBS
+      - pwei-gc
+      - Reidmar
+      - iamnvc 
 
 status-website:
   # Add your custom domain name, or remove the `cname` line if you don't have a domain
