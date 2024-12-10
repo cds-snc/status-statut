@@ -31,13 +31,6 @@ sites:
       - craigzour
       - CalvinRodo
       - patheard
-  - name: GC Forms - API
-    url: https://api.forms-formulaires.alpha.canada.ca/status
-    assignees:
-      - bryan-robitaille
-      - craigzour
-      - CalvinRodo
-      - patheard
   - name: GC Forms - IdP
     url: https://auth.forms-formulaires.alpha.canada.ca/debug/healthz
     assignees:
