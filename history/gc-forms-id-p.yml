@@ -1,7 +1,7 @@
 url: https://auth.forms-formulaires.alpha.canada.ca/debug/healthz
-status: down
-code: 403
-responseTime: 190
-lastUpdated: 2025-01-18T18:18:31.211Z
+status: up
+code: 200
+responseTime: 171
+lastUpdated: 2025-01-18T18:30:04.430Z
 startTime: 2024-09-19T13:37:37.044Z
 generator: Upptime <https://github.com/upptime/upptime>
