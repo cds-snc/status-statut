@@ -1,7 +1,7 @@
 url: https://sre-bot.cdssandbox.xyz/version
-status: up
-code: 200
-responseTime: 137
-lastUpdated: 2025-01-18T23:02:12.526Z
+status: down
+code: 403
+responseTime: 344
+lastUpdated: 2025-01-19T14:57:33.358Z
 startTime: 2022-10-15T01:02:00.000Z
 generator: Upptime <https://github.com/upptime/upptime>
