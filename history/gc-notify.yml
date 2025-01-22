@@ -1,7 +1,7 @@
 url: https://notification.canada.ca/
-status: up
-code: 200
-responseTime: 218
-lastUpdated: 2025-01-21T23:02:15.898Z
+status: down
+code: 503
+responseTime: 415
+lastUpdated: 2025-01-22T13:42:44.163Z
 startTime: 2022-07-25T13:51:21.000Z
 generator: Upptime <https://github.com/upptime/upptime>
