@@ -1,7 +1,7 @@
 url: https://digital.canada.ca/
-status: up
-code: 200
-responseTime: 169
-lastUpdated: 2025-02-05T23:02:15.431Z
+status: down
+code: 403
+responseTime: 229
+lastUpdated: 2025-02-06T20:06:59.860Z
 startTime: 2022-07-25T13:33:39.000Z
 generator: Upptime <https://github.com/upptime/upptime>
