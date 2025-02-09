@@ -1,0 +1,48 @@
+name: "Terraform plan"
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "terraform/**"
+      - ".github/workflows/terraform-plan.yml"
+
+env:
+  AWS_REGION: ca-central-1
+  CONFTEST_VERSION: 0.27.0
+  TERRAFORM_VERSION: 1.10.5
+  TERRAGRUNT_VERSION: 0.72.9
+  TF_INPUT: false
+  TF_VAR_github_personal_access_token: ${{ secrets.CODEBUILD_RUNNER_PERSONAL_ACCESS_TOKEN }}
+
+permissions:
+  id-token: write
+  contents: read
+  pull-requests: write
+
+jobs:
+  terraform-plan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Setup terraform tools
+        uses: cds-snc/terraform-tools-setup@v1
+
+      - name: Configure AWS credentials using OIDC
+        uses: aws-actions/configure-aws-credentials@e3dd6a429d7300a6a4c196c26e071d42e0343502 # v4.0.2
+        with:
+          role-to-assume: arn:aws:iam::283582579564:role/status-statut-plan
+          role-session-name: TFPlan
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Terragrunt plan
+        uses: cds-snc/terraform-plan@d79bcf0eccf632a0ad9e9193072b42c970766c5b # v3.3.1
+        with:
+          directory: "terraform"
+          comment-delete: "true"
+          comment-title: "Terraform: GitHub Runner :octocat:"
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+          terragrunt: "true"
