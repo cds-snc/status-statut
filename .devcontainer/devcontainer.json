@@ -1,0 +1,27 @@
+{
+  "name": "status-statut",
+  "image": "mcr.microsoft.com/devcontainers/base:bullseye@sha256:f485b76ec2971017849252b494e61f4b7d97cd75d094db8161c34343edc026e9",
+  "containerEnv": {
+    "SHELL": "/bin/zsh"
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/aws-cli:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/terraform:1": {
+      "version": "1.10.5",
+      "terragrunt": "0.72.9"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "hashicorp.terraform",
+        "github.copilot",
+        "github.vscode-github-actions",
+        "hashicorp.hcl"
+      ]
+    }
+  },
+  "remoteUser": "vscode"
+}
