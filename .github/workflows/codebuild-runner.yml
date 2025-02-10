@@ -1,0 +1,19 @@
+name: "Test CodeBuild runner"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  workflow-events:
+    runs-on: codebuild-cds-snc-status-statut-${{ github.run_id }}-${{ github.run_attempt }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Curl endpoints
+        run: |
+          curl https://articles.alpha.canada.ca --verbose
+          curl https://notification.canada.ca --verbose
+          curl https://forms-formulaires.alpha.canada.ca --verbose
+          curl https://digital.canada.ca --verbose
+          curl https://scan-files.alpha.canada.ca/healthcheck --verbose
