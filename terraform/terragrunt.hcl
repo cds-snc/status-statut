@@ -4,10 +4,10 @@ locals {
 
 terraform {
   source = "."
+}
 
-  inputs = {
-    region = local.region
-  }
+inputs = {
+  region = local.region
 }
 
 remote_state {
