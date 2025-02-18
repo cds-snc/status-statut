@@ -2,7 +2,14 @@ name: Workflow failure
 
 on:
   workflow_run:
-    workflows: ["*"]
+    workflows:
+      - "Graphs CI"
+      - "Response Time CI"
+      - "Static Site CI"
+      - "Summary CI"
+      - "Terraform apply"
+      - "Update Template CI"
+      - "Uptime CI"
     types:
       - completed
 
