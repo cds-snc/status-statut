@@ -71,6 +71,18 @@ sites:
       - dinophile
       - sylviamclaughlin 
       - gcharest 
+  - name: Superset
+    url: https://superset.cds-snc.ca/healthcheck
+    assignees:
+      - patheard
+      - willeybryan
+      - wmoussa-gc
+  - name: Superset Docs
+    url: https://docs.superset.cds-snc.ca
+    assignees:
+      - patheard
+      - willeybryan
+      - wmoussa-gc
   - name: GitHub secret scanning
     url: https://github-secret-scanning.alpha.canada.ca/healthcheck
     assignees:
