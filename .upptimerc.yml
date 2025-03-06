@@ -73,12 +73,16 @@ sites:
       - gcharest 
   - name: Superset
     url: https://superset.cds-snc.ca/healthcheck
+    headers:
+      - "Upptime: $SUPERSET_HEADER"
     assignees:
       - patheard
       - willeybryan
       - wmoussa-gc
   - name: Superset Docs
     url: https://docs.superset.cds-snc.ca
+    headers:
+      - "Upptime: $SUPERSET_HEADER"
     assignees:
       - patheard
       - willeybryan
