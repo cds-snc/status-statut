@@ -117,7 +117,7 @@ status-website:
       href: /
     - title: GitHub
       href: https://github.com/$OWNER/$REPO
-  theme: notheme
+  themeUrl: /gcds-theme.css
   customHeadHtml: |
     <!-- Icons Font Awesome (to access icons, import Font Awesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous">
@@ -135,8 +135,7 @@ status-website:
         </gcds-top-nav>
     </gcds-header>
 
-  css: |
-    nav { display: none !important; } 
+
 
 # Upptime also supports notifications, assigning issues, and more
 # See https://upptime.js.org/docs/configuration
