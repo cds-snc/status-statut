@@ -117,8 +117,26 @@ status-website:
       href: /
     - title: GitHub
       href: https://github.com/$OWNER/$REPO
-  theme: dark
+  theme: notheme
+  customHeadHtml: |
+    <!-- Icons Font Awesome (to access icons, import Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous">
+    <!-- GC Design System -->
+    <link rel="stylesheet" href="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@0.32.0/dist/gcds/gcds.css">
+    <script type="module" src="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@0.32.0/dist/gcds/gcds.esm.js"></script>
+    <script nomodule src="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@0.32.0/dist/gcds/gcds.js"></script>
 
+  customBodyHtml: |
+    <gcds-header signature-variant=colour> 
+        <gcds-search slot=search action=/sr/srb.html placeholder=Canada.ca></gcds-search>
+        <gcds-top-nav slot=menu label="Top navigation" alignment=right>
+            <gcds-nav-link href=/status-statut/ slot=home>Status-Statut</gcds-nav-link>
+            <gcds-nav-link href=https://github.com/fsdh-pfds/status-statut/ slot>GitHub</gcds-nav-link>
+        </gcds-top-nav>
+    </gcds-header>
+
+  css: |
+    nav { display: none !important; } 
 
 # Upptime also supports notifications, assigning issues, and more
 # See https://upptime.js.org/docs/configuration
