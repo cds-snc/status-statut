@@ -117,7 +117,7 @@ status-website:
       href: /
     - title: GitHub
       href: https://github.com/$OWNER/$REPO
-  themeUrl: /gcds-theme.css
+  themeUrl: https://status-statut.cds-snc.ca/gcds-theme.css
   customHeadHtml: |
     <!-- Icons Font Awesome (to access icons, import Font Awesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous">
