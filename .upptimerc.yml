@@ -131,7 +131,7 @@ status-website:
         <gcds-search slot=search action=/sr/srb.html placeholder=Canada.ca></gcds-search>
         <gcds-top-nav slot=menu label="Top navigation" alignment=right>
             <gcds-nav-link href="https://status-statut.cds-snc.ca/" slot=home>CDS Status</gcds-nav-link>
-            <gcds-nav-link href=https://github.com/fsdh-pfds/status-statut/ slot>GitHub</gcds-nav-link>
+            <gcds-nav-link href="https://github.com/cds-snc/status-statut/" slot>GitHub</gcds-nav-link>
         </gcds-top-nav>
     </gcds-header>
 
