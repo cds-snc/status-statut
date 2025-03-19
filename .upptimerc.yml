@@ -129,10 +129,13 @@ status-website:
   customBodyHtml: |
     <gcds-header signature-variant=colour> 
         <gcds-top-nav slot=menu label="Top navigation" alignment=right>
-            <gcds-nav-link href="https://status-statut.cds-snc.ca/" slot=home>CDS Status</gcds-nav-link>
+            <gcds-nav-link href="https://status-statut.cds-snc.ca/" slot=home>Status / Statut</gcds-nav-link>
             <gcds-nav-link href="https://github.com/cds-snc/status-statut/" slot>GitHub</gcds-nav-link>
         </gcds-top-nav>
     </gcds-header>
+
+  customFootHtml: |
+    <gcds-footer display="full"></gcds-footer>
 
 
 
