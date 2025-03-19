@@ -104,11 +104,8 @@ sites:
       - iamnvc 
 
 status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
   cname: status-statut.cds-snc.ca
-  # baseUrl: /status-statut
-  logoUrl: https://raw.githubusercontent.com/cds-snc/status-statut/main/assets/cds-lockup-ko-en.svg
+  favicon: https://raw.githubusercontent.com/cds-snc/status-statut/main/assets/favicon.png
   name: ""
   introTitle: "Canadian Digital Service / Service numérique canadien"
   introMessage: Status page for CDS products / Page de statut pour les produits du SNC
@@ -169,7 +166,6 @@ i18n:
   down: Down / En panne
   degraded: Degraded / Détérioré
   loading: Loading / Chargement
-  footer: Canadian Digital Service / Service numérique canadien
   pastScheduledMaintenance: Past Scheduled Maintenance / Maintenance programmée passée
   scheduledMaintenance: Scheduled Maintenance / Maintenance programmée
   scheduledMaintenanceSummaryStarted: Started at $DATE for $DURATION minutes / Démarré à $DATE pour $DURATION minutes
