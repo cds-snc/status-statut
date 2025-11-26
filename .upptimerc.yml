@@ -101,7 +101,25 @@ sites:
       - MahamoudTBS
       - pwei-gc
       - Reidmar
-      - iamnvc 
+      - iamnvc
+  - name: GC Signin - connexion.canada.ca
+    url: https://connexion.canada.ca
+    assignees:
+      - MahamoudTBS
+      - melodyhabb
+      - amalungo
+      - sukhichuhan-cds
+      - d12
+      - obie-okongwu   
+  - name: GC Signin - sign-in.canada.ca
+    url: https://sign-in.canada.ca
+    assignees:
+      - MahamoudTBS
+      - melodyhabb
+      - amalungo
+      - sukhichuhan-cds
+      - d12
+      - obie-okongwu    
 
 status-website:
   # Add your custom domain name, or remove the `cname` line if you don't have a domain
