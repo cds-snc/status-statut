@@ -331,5 +331,41 @@
     "timeMonth": 171,
     "timeYear": 215,
     "dailyMinutesDown": {}
+  },
+  {
+    "name": "GC Signin - connexion.canada.ca",
+    "url": "https://connexion.canada.ca",
+    "icon": "https://icons.duckduckgo.com/ip3/connexion.canada.ca.ico",
+    "slug": "gc-signin-connexion-canada-ca",
+    "status": "up",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
+    "time": 85,
+    "timeDay": 85,
+    "timeWeek": 85,
+    "timeMonth": 85,
+    "timeYear": 85,
+    "dailyMinutesDown": {}
+  },
+  {
+    "name": "GC Signin - sign-in.canada.ca",
+    "url": "https://sign-in.canada.ca",
+    "icon": "https://icons.duckduckgo.com/ip3/sign-in.canada.ca.ico",
+    "slug": "gc-signin-sign-in-canada-ca",
+    "status": "up",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
+    "time": 71,
+    "timeDay": 71,
+    "timeWeek": 71,
+    "timeMonth": 71,
+    "timeYear": 71,
+    "dailyMinutesDown": {}
   }
 ]
