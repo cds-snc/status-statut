@@ -102,7 +102,7 @@ sites:
       - pwei-gc
       - Reidmar
       - iamnvc
-  - name: GC Signin - connexion.canada.ca
+  - name: GC Signin FR Website - connexion.canada.ca
     url: https://connexion.canada.ca
     assignees:
       - MahamoudTBS
@@ -111,7 +111,7 @@ sites:
       - sukhichuhan-cds
       - d12
       - obie-okongwu   
-  - name: GC Signin - sign-in.canada.ca
+  - name: GC Signin EN Website - sign-in.canada.ca
     url: https://sign-in.canada.ca
     assignees:
       - MahamoudTBS
