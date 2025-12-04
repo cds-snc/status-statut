@@ -120,7 +120,7 @@ sites:
       - sukhichuhan-cds
       - d12
       - obie-okongwu
-  - name: Staging - GC Signin Profile Manage - app.signin-connexion.alpha.canada.ca
+  - name: GC Signin Manage Profile - Staging - app.signin-connexion.alpha.canada.ca
     url: https://app.signin-connexion.alpha.canada.ca
     assignees:
       - MahamoudTBS
