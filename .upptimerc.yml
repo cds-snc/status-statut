@@ -120,6 +120,7 @@ sites:
       - sukhichuhan-cds
       - d12
       - obie-okongwu
+      - astaylordev
   - name: GC Signin Manage Profile - Staging - app.signin-connexion.alpha.canada.ca
     url: https://app.signin-connexion.alpha.canada.ca
     assignees:
@@ -127,7 +128,9 @@ sites:
       - johnphan-cds
       - d12
       - obie-okongwu
-      - cds-yiwei 
+      - cds-yiwei
+      - astaylordev
+      - breannafife 
 
 status-website:
   # Add your custom domain name, or remove the `cname` line if you don't have a domain
