@@ -1,6 +1,6 @@
 {
   "name": "status-statut",
-  "image": "mcr.microsoft.com/devcontainers/base:bullseye@sha256:1f1835d555af151b610cfa02f5c577f63e7d1f6ecf037de155451c781c949522",
+  "image": "mcr.microsoft.com/devcontainers/base:bullseye@sha256:03e618ae2b25d068f292c99220b2b055007694d1e1ad7fac34b02d8060a7f504",
   "containerEnv": {
     "SHELL": "/bin/zsh"
   },
