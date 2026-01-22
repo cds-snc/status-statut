@@ -132,7 +132,7 @@
     "timeDay": 233,
     "timeWeek": 344,
     "timeMonth": 433,
-    "timeYear": 466,
+    "timeYear": 467,
     "dailyMinutesDown": {
       "2025-10-01": 9,
       "2025-07-15": 8,
@@ -351,6 +351,24 @@
     "timeWeek": 275,
     "timeMonth": 264,
     "timeYear": 276,
+    "dailyMinutesDown": {}
+  },
+  {
+    "name": "GC Signin Manage Profile - Prod - app.signin-connexion.canada.ca/en",
+    "url": "https://app.signin-connexion.canada.ca/en",
+    "icon": "https://icons.duckduckgo.com/ip3/app.signin-connexion.canada.ca.ico",
+    "slug": "gc-signin-manage-profile-prod-app-signin-connexion-canada-ca-en",
+    "status": "up",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
+    "time": 258,
+    "timeDay": 258,
+    "timeWeek": 258,
+    "timeMonth": 258,
+    "timeYear": 258,
     "dailyMinutesDown": {}
   }
 ]
