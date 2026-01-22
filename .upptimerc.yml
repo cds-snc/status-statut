@@ -130,7 +130,17 @@ sites:
       - obie-okongwu
       - cds-yiwei
       - astaylordev
-      - breannafife
+      - srtalbot
+  - name: GC Signin Manage Profile - Prod - app.signin-connexion.canada.ca/en
+    url: https://app.signin-connexion.canada.ca/en
+    assignees:
+      - MahamoudTBS
+      - johnphan-cds
+      - d12
+      - obie-okongwu
+      - cds-yiwei
+      - astaylordev
+      - srtalbot
 
 status-website:
   # Add your custom domain name, or remove the `cname` line if you don't have a domain
