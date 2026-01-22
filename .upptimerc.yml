@@ -78,7 +78,7 @@ sites:
     assignees:
       - patheard
       - willeybryan
-      - wmoussa-gc
+      - yannickbounouar-cds
   - name: Superset Docs
     url: https://docs.superset.cds-snc.ca
     headers:
@@ -86,7 +86,7 @@ sites:
     assignees:
       - patheard
       - willeybryan
-      - wmoussa-gc
+      - yannickbounouar-cds
   - name: GitHub secret scanning
     url: https://github-secret-scanning.alpha.canada.ca/healthcheck
     assignees:
