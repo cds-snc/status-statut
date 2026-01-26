@@ -47,14 +47,6 @@ sites:
       - CalvinRodo
       - patheard
       - dinophile
-  - name: Scan files
-    url: https://scan-files.alpha.canada.ca/healthcheck
-    assignees:
-      - CalvinRodo
-      - patheard
-      - dinophile
-      - sylviamclaughlin 
-      - gcharest 
   - name: Share encrypted messages
     url: https://encrypted-message.cdssandbox.xyz/
     assignees:
