@@ -14,7 +14,6 @@ env:
   TERRAFORM_VERSION: 1.10.5
   TERRAGRUNT_VERSION: 0.72.9
   TF_INPUT: false
-  TF_VAR_github_personal_access_token: ${{ secrets.CODEBUILD_RUNNER_PERSONAL_ACCESS_TOKEN }}
 
 permissions:
   id-token: write
