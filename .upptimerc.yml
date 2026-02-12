@@ -150,7 +150,7 @@ sites:
       - melaniebmn
       - adorayi
   - name: cdn.design-system.canada.ca
-    url: https://cdn.design-system.canada.ca/
+    url: https://cdn.design-system.alpha.canada.ca/@gcds-core/components@latest/dist/index.js
     assignees:
       - daine
       - mcman12
