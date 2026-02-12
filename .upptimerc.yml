@@ -149,6 +149,14 @@ sites:
       - ethanWallace
       - melaniebmn
       - adorayi
+  - name: cdn.design-system.canada.ca
+    url: https://cdn.design-system.alpha.canada.ca/@gcds-core/components@latest/dist/index.js
+    assignees:
+      - daine
+      - mcman12
+      - ethanWallace
+      - melaniebmn
+      - adorayi
 
 status-website:
   # Add your custom domain name, or remove the `cname` line if you don't have a domain
