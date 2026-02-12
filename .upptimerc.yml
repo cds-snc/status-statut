@@ -133,6 +133,22 @@ sites:
       - cds-yiwei
       - astaylordev
       - srtalbot
+  - name: GC Design System
+    url: https://design-system.canada.ca/
+    assignees:
+      - daine
+      - mcman12
+      - ethanWallace
+      - melaniebmn
+      - adorayi
+  - name: Système de design GC
+    url: https://systeme-design.canada.ca/
+    assignees:
+      - daine
+      - mcman12
+      - ethanWallace
+      - melaniebmn
+      - adorayi
 
 status-website:
   # Add your custom domain name, or remove the `cname` line if you don't have a domain
