@@ -369,5 +369,25 @@
     "timeMonth": 71,
     "timeYear": 71,
     "dailyMinutesDown": {}
+  },
+  {
+    "name": "cdn.design-system.canada.ca",
+    "url": "https://cdn.design-system.alpha.canada.ca/@gcds-core/components@latest/dist/index.js",
+    "icon": "https://icons.duckduckgo.com/ip3/cdn.design-system.alpha.canada.ca.ico",
+    "slug": "cdn-design-system-canada-ca",
+    "status": "up",
+    "uptime": "0.00%",
+    "uptimeDay": "0.00%",
+    "uptimeWeek": "0.00%",
+    "uptimeMonth": "0.00%",
+    "uptimeYear": "0.00%",
+    "time": 109,
+    "timeDay": 109,
+    "timeWeek": 109,
+    "timeMonth": 109,
+    "timeYear": 109,
+    "dailyMinutesDown": {
+      "2026-02-12": 3
+    }
   }
 ]
