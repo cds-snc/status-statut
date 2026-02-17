@@ -1,0 +1,38 @@
+# Custom extension to add security.txt file to the generated site
+name: Add Security.txt
+on:
+  workflow_run:
+    workflows: ["Static Site CI"]
+    types:
+      - completed
+
+jobs:
+  add-security-txt:
+    name: Add security.txt to deployed site
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Create .well-known directory and add security.txt
+        run: |
+          mkdir -p .well-known
+          cat > .well-known/security.txt << 'EOF'
+          Contact: mailto:ZZTBSCYBERS@tbs-sct.gc.ca
+          Contact: https://hackerone.com/tbs-sct/
+          Canonical: https://cdssandbox.xyz/.well-known/security.txt
+          Expires: 2026-03-02T12:00:00.000Z
+          Preferred-Languages: en, fr
+          EOF
+          
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .well-known/security.txt
+          git diff --staged --quiet || git commit -m "Add security.txt file"
+          git push
