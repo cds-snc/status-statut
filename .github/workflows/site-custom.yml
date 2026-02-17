@@ -10,6 +10,8 @@ jobs:
   add-security-txt:
     name: Add security.txt to deployed site
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Checkout
