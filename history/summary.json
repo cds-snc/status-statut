@@ -302,7 +302,7 @@
     "url": "https://app.signin-connexion.alpha.canada.ca",
     "icon": "https://icons.duckduckgo.com/ip3/app.signin-connexion.alpha.canada.ca.ico",
     "slug": "gc-signin-manage-profile-staging-app-signin-connexion-alpha-canada-ca",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
     "uptimeDay": "100.00%",
     "uptimeWeek": "100.00%",
