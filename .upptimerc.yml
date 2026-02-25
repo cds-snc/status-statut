@@ -113,8 +113,8 @@ sites:
       - d12
       - obie-okongwu
       - astaylordev
-  - name: GC Signin Manage Profile - Staging - app.signin-connexion.alpha.canada.ca
-    url: https://app.signin-connexion.alpha.canada.ca
+  - name: GC Signin Manage Profile - Staging - app.login-connexion.alpha.canada.ca
+    url: https://app.login-connexion.alpha.canada.ca
     assignees:
       - MahamoudTBS
       - johnphan-cds
