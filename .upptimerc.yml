@@ -94,7 +94,7 @@ sites:
       - pwei-gc
       - Reidmar
       - iamnvc
-  - name: GC Signin FR Website - connexion.canada.ca
+  - name: CanadaLogin FR Website - connexion.canada.ca
     url: https://connexion.canada.ca
     assignees:
       - MahamoudTBS
@@ -103,7 +103,7 @@ sites:
       - sukhichuhan-cds
       - d12
       - obie-okongwu   
-  - name: GC Signin EN Website - sign-in.canada.ca
+  - name: CanadaLogin EN Website - sign-in.canada.ca
     url: https://sign-in.canada.ca
     assignees:
       - MahamoudTBS
@@ -113,7 +113,7 @@ sites:
       - d12
       - obie-okongwu
       - astaylordev
-  - name: GC Signin Manage Profile - Staging - app.login-connexion.alpha.canada.ca
+  - name: CanadaLogin Manage Profile - Staging - app.login-connexion.alpha.canada.ca
     url: https://app.login-connexion.alpha.canada.ca
     assignees:
       - MahamoudTBS
@@ -123,7 +123,7 @@ sites:
       - cds-yiwei
       - astaylordev
       - srtalbot
-  - name: GC Signin Manage Profile - Prod - app.signin-connexion.canada.ca/en
+  - name: CanadaLogin Manage Profile - Prod - app.signin-connexion.canada.ca/en
     url: https://app.signin-connexion.canada.ca/en
     assignees:
       - MahamoudTBS
