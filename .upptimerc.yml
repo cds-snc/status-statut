@@ -103,8 +103,8 @@ sites:
       - sukhichuhan-cds
       - d12
       - obie-okongwu   
-  - name: CanadaLogin EN Website - sign-in.canada.ca
-    url: https://sign-in.canada.ca
+  - name: CanadaLogin EN Website - login.canada.ca
+    url: https://login.canada.ca
     assignees:
       - MahamoudTBS
       - melodyhabb
