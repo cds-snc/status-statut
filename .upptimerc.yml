@@ -133,7 +133,7 @@ sites:
       - cds-yiwei
       - astaylordev
       - srtalbot
-  - name: CanadaLogin IBM Tenant - Staging - auth.login-connexion.alpha.canada.ca
+  - name: CanadaLogin - Staging Tenant - auth.login-connexion.alpha.canada.ca
     url: https://auth.login-connexion.alpha.canada.ca
     assignees:
       - MahamoudTBS
@@ -143,7 +143,7 @@ sites:
       - cds-yiwei
       - astaylordev
       - srtalbot
-  - name: CanadaLogin IBM Tenant - Prod - auth.login-connexion.canada.ca
+  - name: CanadaLogin - Prod Tenant - auth.login-connexion.canada.ca
     url: https://auth.login-connexion.canada.ca
     assignees:
       - MahamoudTBS
