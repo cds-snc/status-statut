@@ -123,8 +123,28 @@ sites:
       - cds-yiwei
       - astaylordev
       - srtalbot
-  - name: CanadaLogin Manage Profile - Prod - app.signin-connexion.canada.ca/en
-    url: https://app.signin-connexion.canada.ca/en
+  - name: CanadaLogin Manage Profile - Prod - app.login-connexion.canada.ca
+    url: https://app.login-connexion.canada.ca
+    assignees:
+      - MahamoudTBS
+      - johnphan-cds
+      - d12
+      - obie-okongwu
+      - cds-yiwei
+      - astaylordev
+      - srtalbot
+  - name: CanadaLogin IBM Tenant - Staging - auth.login-connexion.alpha.canada.ca
+    url: https://auth.login-connexion.alpha.canada.ca
+    assignees:
+      - MahamoudTBS
+      - johnphan-cds
+      - d12
+      - obie-okongwu
+      - cds-yiwei
+      - astaylordev
+      - srtalbot
+  - name: CanadaLogin IBM Tenant - Prod - auth.login-connexion.canada.ca
+    url: https://auth.login-connexion.canada.ca
     assignees:
       - MahamoudTBS
       - johnphan-cds
