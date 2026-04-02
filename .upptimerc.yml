@@ -94,7 +94,7 @@ sites:
       - pwei-gc
       - Reidmar
       - iamnvc
-  - name: CanadaLogin FR Website - connexion.canada.ca
+  - name: CanadaLogin Website FR 
     url: https://connexion.canada.ca
     assignees:
       - MahamoudTBS
@@ -103,8 +103,8 @@ sites:
       - sukhichuhan-cds
       - d12
       - obie-okongwu   
-  - name: CanadaLogin EN Website - sign-in.canada.ca
-    url: https://sign-in.canada.ca
+  - name: CanadaLogin Website EN
+    url: https://login.canada.ca
     assignees:
       - MahamoudTBS
       - melodyhabb
@@ -113,7 +113,7 @@ sites:
       - d12
       - obie-okongwu
       - astaylordev
-  - name: CanadaLogin Manage Profile - Staging - app.login-connexion.alpha.canada.ca
+  - name: CanadaLogin Manage Profile [Staging]
     url: https://app.login-connexion.alpha.canada.ca
     assignees:
       - MahamoudTBS
@@ -123,8 +123,28 @@ sites:
       - cds-yiwei
       - astaylordev
       - srtalbot
-  - name: CanadaLogin Manage Profile - Prod - app.signin-connexion.canada.ca/en
-    url: https://app.signin-connexion.canada.ca/en
+  - name: CanadaLogin Manage Profile [Prod]
+    url: https://app.login-connexion.canada.ca
+    assignees:
+      - MahamoudTBS
+      - johnphan-cds
+      - d12
+      - obie-okongwu
+      - cds-yiwei
+      - astaylordev
+      - srtalbot
+  - name: CanadaLogin IDP [Staging]
+    url: https://auth.login-connexion.alpha.canada.ca
+    assignees:
+      - MahamoudTBS
+      - johnphan-cds
+      - d12
+      - obie-okongwu
+      - cds-yiwei
+      - astaylordev
+      - srtalbot
+  - name: CanadaLogin IDP  [Prod]
+    url: https://auth.login-connexion.canada.ca
     assignees:
       - MahamoudTBS
       - johnphan-cds
