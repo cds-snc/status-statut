@@ -96,6 +96,8 @@ sites:
       - iamnvc
   - name: CanadaLogin Website FR 
     url: https://connexion.canada.ca
+    headers:
+      - "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
     assignees:
       - MahamoudTBS
       - melodyhabb
@@ -105,6 +107,8 @@ sites:
       - obie-okongwu   
   - name: CanadaLogin Website EN
     url: https://login.canada.ca
+    headers:
+      - "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
     assignees:
       - MahamoudTBS
       - melodyhabb
@@ -115,6 +119,8 @@ sites:
       - astaylordev
   - name: CanadaLogin Manage Profile [Staging]
     url: https://app.login-connexion.alpha.canada.ca
+    headers:
+      - "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
     assignees:
       - MahamoudTBS
       - johnphan-cds
@@ -125,6 +131,8 @@ sites:
       - srtalbot
   - name: CanadaLogin Manage Profile [Prod]
     url: https://app.login-connexion.canada.ca
+    headers:
+      - "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
     assignees:
       - MahamoudTBS
       - johnphan-cds
@@ -135,6 +143,8 @@ sites:
       - srtalbot
   - name: CanadaLogin IDP [Staging]
     url: https://auth.login-connexion.alpha.canada.ca
+    headers:
+      - "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
     assignees:
       - MahamoudTBS
       - johnphan-cds
@@ -145,6 +155,8 @@ sites:
       - srtalbot
   - name: CanadaLogin IDP  [Prod]
     url: https://auth.login-connexion.canada.ca
+    headers:
+      - "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
     assignees:
       - MahamoudTBS
       - johnphan-cds
