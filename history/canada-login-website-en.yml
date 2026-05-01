@@ -1,7 +1,7 @@
 url: https://login.canada.ca
-status: up
-code: 200
-responseTime: 451
-lastUpdated: 2026-04-30T23:18:01.971Z
+status: down
+code: 403
+responseTime: 379
+lastUpdated: 2026-05-01T23:16:56.677Z
 startTime: 2026-04-02T18:28:56.201Z
 generator: Upptime <https://github.com/upptime/upptime>
