@@ -1,7 +1,7 @@
 url: https://superset.cds-snc.ca/healthcheck
 status: up
 code: 200
-responseTime: 328
-lastUpdated: 2026-05-27T23:27:19.055Z
+responseTime: 247
+lastUpdated: 2026-05-28T23:28:19.091Z
 startTime: 2025-03-03T17:54:34.721Z
 generator: Upptime <https://github.com/upptime/upptime>
