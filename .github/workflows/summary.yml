@@ -25,7 +25,7 @@ jobs:
           ref: ${{ github.head_ref }}
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Update summary in README
-        uses: upptime/uptime-monitor@1ee67da0e46844c43a496afde156bad5baec401e # v1.42.5
+        uses: upptime/uptime-monitor@9ccee5c934ef5a733aef5b6b7b4865007cc6be6e # v1.43.2
         with:
           command: "readme"
         env:
