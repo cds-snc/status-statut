@@ -1,5 +1,5 @@
 module "github_runner" {
-  source = "github.com/cds-snc/terraform-modules//codebuild_github_runner?ref=v11.3.5"
+  source = "github.com/cds-snc/terraform-modules//codebuild_github_runner?ref=v11.4.4"
 
   project_name               = "cds-snc-status-statut"
   github_repository_url      = "https://github.com/cds-snc/status-statut.git"
