@@ -16,7 +16,7 @@ jobs:
           ref: ${{ github.head_ref }}
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Check endpoint status
-        uses: upptime/uptime-monitor@1ee67da0e46844c43a496afde156bad5baec401e # v1.42.5
+        uses: upptime/uptime-monitor@65aad8bba77c40ec051f30e7329563f7f4cfab6e # v1.43.9
         with:
           command: "update"
         env:
