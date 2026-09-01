@@ -14,7 +14,7 @@
     "timeDay": 0,
     "timeWeek": 0,
     "timeMonth": 0,
-    "timeYear": 270,
+    "timeYear": 271,
     "dailyMinutesDown": {
       "2026-06-03": 3,
       "2026-06-05": 19,
@@ -36,7 +36,7 @@
     "timeDay": 0,
     "timeWeek": 0,
     "timeMonth": 0,
-    "timeYear": 244,
+    "timeYear": 245,
     "dailyMinutesDown": {
       "2026-06-03": 3,
       "2026-06-05": 19,
@@ -103,7 +103,7 @@
     "timeDay": 0,
     "timeWeek": 0,
     "timeMonth": 0,
-    "timeYear": 322,
+    "timeYear": 323,
     "dailyMinutesDown": {
       "2026-06-03": 3,
       "2026-06-05": 19,
@@ -125,7 +125,7 @@
     "timeDay": 0,
     "timeWeek": 0,
     "timeMonth": 0,
-    "timeYear": 504,
+    "timeYear": 505,
     "dailyMinutesDown": {
       "2025-10-01": 9,
       "2026-06-03": 3,
@@ -232,7 +232,7 @@
     "timeDay": 0,
     "timeWeek": 0,
     "timeMonth": 0,
-    "timeYear": 3392,
+    "timeYear": 3402,
     "dailyMinutesDown": {
       "2025-10-29": 2,
       "2026-06-03": 3,
@@ -289,11 +289,11 @@
     "icon": "https://icons.duckduckgo.com/ip3/login.canada.ca.ico",
     "slug": "canada-login-website-en",
     "status": "up",
-    "uptime": "88.58%",
+    "uptime": "88.65%",
     "uptimeDay": "100.00%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
-    "uptimeYear": "88.58%",
+    "uptimeYear": "88.65%",
     "time": 266,
     "timeDay": 0,
     "timeWeek": 0,
