@@ -21,4 +21,4 @@ jobs:
           command: "update"
         env:
           GH_PAT: ${{ secrets.GITHUB_TOKEN }}
-          SECRETS_CONTEXT: ${{ toJson(secrets) }}
+          SECRETS_CONTEXT: '{"CANADALOGIN_HEADER":${{ toJson(secrets.CANADALOGIN_HEADER) }},"NOTIFICATION_SLACK":${{ toJson(secrets.NOTIFICATION_SLACK) }},"NOTIFICATION_SLACK_STRATEGY":${{ toJson(secrets.NOTIFICATION_SLACK_STRATEGY) }},"NOTIFICATION_SLACK_WEBHOOK_URL":${{ toJson(secrets.NOTIFICATION_SLACK_WEBHOOK_URL) }},"SUPERSET_HEADER":${{ toJson(secrets.SUPERSET_HEADER) }}}'
