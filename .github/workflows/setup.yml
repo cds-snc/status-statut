@@ -11,7 +11,7 @@ on:
     types: [setup]
   workflow_dispatch:
 concurrency:
-  group: ${{ github.repository }}-${{ github.head_ref || github.ref_name }}-upptime-data
+  group: ${{ github.repository }}-${{ github.head_ref || github.ref_name }}-upptime-setup
   cancel-in-progress: false
 jobs:
   release:

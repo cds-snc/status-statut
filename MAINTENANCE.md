@@ -43,23 +43,26 @@ Independent cron jobs sharing one repo. Nothing calls anything else except where
 | [uptime.yml](.github/workflows/uptime.yml) | Uptime CI | `*/5 * * * *` | `update` | Probes every site; opens/closes incident Issues **on status change only**. Runs on our CodeBuild runner. |
 | [response-time.yml](.github/workflows/response-time.yml) | Response Time CI | `0 23 * * *` | `response-time` | Same probe, force-commits every site. **This is what feeds the graphs.** |
 | [graphs.yml](.github/workflows/graphs.yml) | Graphs CI | `0 0 * * *` | `graphs` | `npx @upptime/graphs` → `graphs/*.png` |
-| [summary.yml](.github/workflows/summary.yml) | Summary CI | `0 0 * * *` | `readme` | Rewrites `README.md` between markers + `api/*/*.json` badges |
+| [summary.yml](.github/workflows/summary.yml) | Summary CI | `20 0 * * *` | `readme` | Rewrites `README.md` between markers + `api/*/*.json` badges |
 | [site.yml](.github/workflows/site.yml) | Static Site CI | `0 1 * * *` | `site` | Builds `@upptime/status-page`, deploys to `gh-pages` |
 | [setup.yml](.github/workflows/setup.yml) | Setup CI | push to `.upptimerc.yml` | `response-time`, `readme`, `site` | Applies a config change immediately instead of waiting for the crons. Upstream's `update-template` step is removed — **see §6**. |
 
-Ordering is implied by the crons only: `response-time` 23:00 → `graphs` 00:00 → `summary` 00:00 →
-`site` 01:00. If Response Time CI is late, Graphs CI renders yesterday's data and self-corrects the
-next night.
+Ordering is implied by the crons only: `response-time` 23:00 → `graphs` 00:00 → `summary` 00:20 →
+`site` 01:00. They are staggered so no two ever run at once (each takes 20–80s). If Response Time CI
+is late, Graphs CI renders yesterday's data and self-corrects the next night.
 
-They check out `${{ github.head_ref || github.ref_name }}` rather than the SHA at trigger time, and
-use two `concurrency` groups: `-upptime-probe` for Uptime CI alone, `-upptime-data` for the five
-daily/config workflows. **Keep Uptime CI out of the data group.** GitHub holds only one pending run
-per group, and a new arrival replaces the pending one, so a 5-minute probe sharing the group would
-routinely evict a queued Response Time CI and silently lose that day's history.
+All six check out `${{ github.head_ref || github.ref_name }}` rather than the SHA at trigger time,
+which narrows the window in which a merge to `main` can make their `git push` fail.
 
-Both settings reduce, but cannot eliminate, `git push` rejections when `main` moves mid-run —
-upptime pushes unconditionally and never rebases, so a merge landing in the final seconds still
-loses the race. Those surface as a one-off `failure` and clear on the next run.
+**Never put two workflows in one `concurrency` group here.** GitHub holds one pending run per group
+and a new arrival *replaces* it, so a shared group silently skips whole workflows — losing a day of
+history with no failure to alert on. Only `uptime.yml` (`-upptime-probe`) and `setup.yml`
+(`-upptime-setup`) have groups, each alone, so an eviction can only ever replace a duplicate of the
+same workflow. The four daily jobs rely on staggered crons instead.
+
+Push races cannot be fully eliminated — upptime pushes unconditionally and never rebases — but they
+surface as a one-off `failure` that clears on the next run, which is strictly better than a silent
+skip.
 
 Deleted on purpose — do not let `update-template` recreate them: `update-template.yml`, `updates.yml`.
 
@@ -118,13 +121,14 @@ delete its history.
 anywhere in the file), and everything between `<!--start: status pages-->` and
 `<!--end: status pages-->`. Prose outside those markers survives — but put real docs here instead.
 
-**Force a full refresh**, in this order:
+**Force a full refresh.** Run these in order, waiting for each to finish (20–80s) — they all commit
+to `main`, so overlapping them causes push failures:
 
 ```bash
-gh workflow run response-time.yml   # probe + commit every site (first)
-gh workflow run graphs.yml          # rebuild graphs
-gh workflow run summary.yml         # README + badges
-gh workflow run site.yml            # deploy gh-pages
+gh workflow run response-time.yml && gh run watch "$(gh run list -w response-time.yml -L1 --json databaseId --jq '.[0].databaseId')"
+gh workflow run graphs.yml     # then repeat the watch pattern for each
+gh workflow run summary.yml
+gh workflow run site.yml
 ```
 
 **Upgrade `upptime/uptime-monitor`.** Renovate opens the PR. Review the diff for behaviour changes

@@ -37,10 +37,11 @@ jobs:
           if [ -z "$last_epoch" ]; then
             problems+=("Could not read the last \`history/\` commit date — monitoring is unverified.")
           else
-            age_h=$(( ( $(date -u +%s) - last_epoch ) / 3600 ))
-            echo "Last history/ commit: $last (${age_h}h ago)"
-            if [ "$age_h" -gt "$MAX_HISTORY_AGE_HOURS" ]; then
-              problems+=("No commit to \`history/\` in ${age_h}h — status data is stale.")
+            age_s=$(( $(date -u +%s) - last_epoch ))
+            echo "Last history/ commit: $last ($(( age_s / 3600 ))h $(( age_s % 3600 / 60 ))m ago)"
+            # Compare seconds: flooring to whole hours would hide up to 59m of staleness.
+            if [ "$age_s" -gt $(( MAX_HISTORY_AGE_HOURS * 3600 )) ]; then
+              problems+=("No commit to \`history/\` in $(( age_s / 3600 ))h $(( age_s % 3600 / 60 ))m — status data is stale.")
             fi
           fi
 

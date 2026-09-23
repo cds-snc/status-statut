@@ -5,13 +5,10 @@
 name: Summary CI
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "20 0 * * *"
   repository_dispatch:
     types: [summary]
   workflow_dispatch:
-concurrency:
-  group: ${{ github.repository }}-${{ github.head_ref || github.ref_name }}-upptime-data
-  cancel-in-progress: false
 jobs:
   release:
     name: Generate README
