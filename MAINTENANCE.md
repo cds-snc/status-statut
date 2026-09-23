@@ -83,6 +83,13 @@ Pass secrets to the action **individually**, never as a whole-context blob
 (`SECRETS_CONTEXT: ${{ toJson(secrets) }}`). That pattern matches known exfiltration attacks and
 GitHub will freeze the workflow — it is what caused the §7 outage.
 
+Never interpolate `${{ ... }}` directly into a `run:` block. Values such as a ref or branch name can
+contain shell metacharacters, and the expression is substituted into the script before bash sees it
+([worked example](https://www.kenmuse.com/blog/the-hidden-danger-in-git-ref-names/)). Bind them to
+`env:` and quote the variable instead, and build JSON payloads with `jq -n --arg` rather than string
+concatenation. Passing an expression to an action's `with:` input is safe — inputs reach the action
+as environment variables, never through a shell.
+
 **There is no `GH_PAT`, and none is needed.** Everything runs on `GITHUB_TOKEN` (repo default
 workflow permission is `write`), which covers all writes to `history/`, `api/`, `graphs/`,
 `README.md` and `gh-pages`. The only thing that needs more is `update-template`, which we don't
