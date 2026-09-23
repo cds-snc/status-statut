@@ -29,12 +29,13 @@ jobs:
           set -uo pipefail
           problems=()
 
-          # Is data still landing?
+          # Is data still landing? Anything unreadable is a problem, not a skip:
+          # this canary must fail closed.
           last=$(gh api "repos/$REPO/commits?path=history&per_page=1" \
-                   --jq '.[0].commit.committer.date')
-          last_epoch=$(date -u -d "$last" +%s 2>/dev/null || echo "")
+                   --jq '.[0].commit.committer.date' 2>/dev/null) || last=""
+          last_epoch=$(date -u -d "$last" +%s 2>/dev/null) || last_epoch=""
           if [ -z "$last_epoch" ]; then
-            echo "::warning::Could not read the last history/ commit date; skipping that check."
+            problems+=("Could not read the last \`history/\` commit date — monitoring is unverified.")
           else
             age_h=$(( ( $(date -u +%s) - last_epoch ) / 3600 ))
             echo "Last history/ commit: $last (${age_h}h ago)"
@@ -43,22 +44,22 @@ jobs:
             fi
           fi
 
-          # Are the probes running?
+          # Are the probes running? Conclusions are counted locally rather than via
+          # the API's `status=` filter, which returns 0 for anything it does not
+          # recognise instead of erroring.
           since=$(date -u -d '24 hours ago' +%Y-%m-%dT%H:%M:%SZ)
-          runs() {
-            gh api "repos/$REPO/actions/workflows/uptime.yml/runs?created=>$since&per_page=1${1:-}" \
-              --jq '.total_count'
-          }
-          total=$(runs); ok=$(runs "&status=success"); blocked=$(runs "&status=action_required")
-          # A failed API call must not read as "zero runs".
-          case "${total}${ok}${blocked}" in
-            *[!0-9]*|"")
-              echo "::warning::Could not read Uptime CI run counts from the API; skipping that check."
-              total=-1 ;;
-          esac
-          echo "Uptime CI over 24h: total=$total success=$ok action_required=$blocked"
+          conclusions=$(gh api --paginate \
+            "repos/$REPO/actions/workflows/uptime.yml/runs?created=>$since&status=completed&per_page=100" \
+            --jq '.workflow_runs[].conclusion' 2>/dev/null) || conclusions="!"
 
-          if [ "$total" -ge 0 ]; then
+          if [ "$conclusions" = "!" ]; then
+            problems+=("Could not read Uptime CI run history from the API — monitoring is unverified.")
+          else
+            count() { printf '%s\n' "$conclusions" | grep -cx "$1" || true; }
+            total=$(printf '%s\n' "$conclusions" | grep -c . || true)
+            ok=$(count success); blocked=$(count action_required)
+            echo "Uptime CI over 24h: completed=$total success=$ok action_required=$blocked"
+
             if [ "$blocked" -gt 0 ]; then
               problems+=("${blocked} Uptime CI run(s) frozen as \`action_required\` — GitHub is holding the workflow for approval.")
             fi
@@ -94,7 +95,7 @@ jobs:
                    "$REPORT" "$RUN_URL")
           jq -nc --arg t "$text" \
             '{blocks:[{type:"section",text:{type:"mrkdwn",text:$t}}]}' \
-          | curl -sS -X POST -H 'Content-type: application/json' --data @- "$WEBHOOK"
+          | curl -sS --fail-with-body -X POST -H 'Content-type: application/json' --data @- "$WEBHOOK"
 
       - name: Fail the run if unhealthy
         if: steps.check.outputs.healthy == 'false'

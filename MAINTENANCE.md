@@ -51,11 +51,15 @@ Ordering is implied by the crons only: `response-time` 23:00 → `graphs` 00:00 
 `site` 01:00. If Response Time CI is late, Graphs CI renders yesterday's data and self-corrects the
 next night.
 
-All six share a `concurrency` group so they never push over each other, and all check out
-`${{ github.head_ref || github.ref_name }}` rather than the SHA at trigger time. Both reduce (but
-cannot eliminate) `git push` rejections when `main` moves mid-run — upptime pushes unconditionally
-and never rebases, so a merge landing in the final seconds still loses the race. Those show up as a
-one-off `failure` and clear themselves on the next run.
+They check out `${{ github.head_ref || github.ref_name }}` rather than the SHA at trigger time, and
+use two `concurrency` groups: `-upptime-probe` for Uptime CI alone, `-upptime-data` for the five
+daily/config workflows. **Keep Uptime CI out of the data group.** GitHub holds only one pending run
+per group, and a new arrival replaces the pending one, so a 5-minute probe sharing the group would
+routinely evict a queued Response Time CI and silently lose that day's history.
+
+Both settings reduce, but cannot eliminate, `git push` rejections when `main` moves mid-run —
+upptime pushes unconditionally and never rebases, so a merge landing in the final seconds still
+loses the race. Those surface as a one-off `failure` and clear on the next run.
 
 Deleted on purpose — do not let `update-template` recreate them: `update-template.yml`, `updates.yml`.
 

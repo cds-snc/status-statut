@@ -10,7 +10,7 @@ on:
     types: [uptime]
   workflow_dispatch:
 concurrency:
-  group: ${{ github.repository }}-${{ github.head_ref || github.ref_name }}-upptime
+  group: ${{ github.repository }}-${{ github.head_ref || github.ref_name }}-upptime-probe
   cancel-in-progress: false
 jobs:
   release:

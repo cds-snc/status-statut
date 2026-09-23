@@ -38,4 +38,4 @@ jobs:
                    "$CONCLUSION" "$RUN_URL" "$WORKFLOW_NAME")
           jq -nc --arg t "$text" \
             '{blocks:[{type:"section",text:{type:"mrkdwn",text:$t}}]}' \
-          | curl -sS -X POST -H 'Content-type: application/json' --data @- "$WEBHOOK"
+          | curl -sS --fail-with-body -X POST -H 'Content-type: application/json' --data @- "$WEBHOOK"
