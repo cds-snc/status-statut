@@ -36,7 +36,7 @@ Three facts that explain most surprises:
 
 Independent cron jobs sharing one repo. Nothing calls anything else except where noted.
 
-### Upptime-generated (most still carry a "do not edit" banner — see §6)
+### Upptime-generated (modified by us — see §6)
 
 | File | Name | Trigger | Command | Effect |
 | --- | --- | --- | --- | --- |
@@ -51,6 +51,12 @@ Ordering is implied by the crons only: `response-time` 23:00 → `graphs` 00:00 
 `site` 01:00. If Response Time CI is late, Graphs CI renders yesterday's data and self-corrects the
 next night.
 
+All six share a `concurrency` group so they never push over each other, and all check out
+`${{ github.head_ref || github.ref_name }}` rather than the SHA at trigger time. Both reduce (but
+cannot eliminate) `git push` rejections when `main` moves mid-run — upptime pushes unconditionally
+and never rebases, so a merge landing in the final seconds still loses the race. Those show up as a
+one-off `failure` and clear themselves on the next run.
+
 Deleted on purpose — do not let `update-template` recreate them: `update-template.yml`, `updates.yml`.
 
 ### Ours
@@ -58,7 +64,8 @@ Deleted on purpose — do not let `update-template` recreate them: `update-templ
 | File | Trigger | Purpose |
 | --- | --- | --- |
 | [site-custom.yml](.github/workflows/site-custom.yml) | after Static Site CI | Adds `.well-known/security.txt` to `gh-pages`. **Bump `Expires:` before 2027-04-01.** |
-| [workflow-failure.yml](.github/workflows/workflow-failure.yml) | after the CI workflows | Slack alert via `STATUS_OPS_WEBHOOK` on `failure`, `action_required`, `timed_out`, `startup_failure` (§5) |
+| [workflow-failure.yml](.github/workflows/workflow-failure.yml) | after the CI workflows | Per-run Slack alert via `STATUS_OPS_WEBHOOK` (§5) |
+| [monitoring-health.yml](.github/workflows/monitoring-health.yml) | `30 12 * * *` | Daily canary: alerts if monitoring stops producing data (§5) |
 | [s3-backup.yml](.github/workflows/s3-backup.yml) | `0 6 * * *` | Zips the repo to S3 (OIDC role) |
 | [terraform-plan.yml](.github/workflows/terraform-plan.yml) / [terraform-apply.yml](.github/workflows/terraform-apply.yml) | PR / push | Manages the CodeBuild GitHub runner ([terraform/codebuild.tf](terraform/codebuild.tf)) |
 | [ossf-scorecard.yml](.github/workflows/ossf-scorecard.yml), [export_github_data.yml](.github/workflows/export_github_data.yml), [backstage-catalog-helper.yml](.github/workflows/backstage-catalog-helper.yml) | — | Org-wide, synced from `cds-snc/site-reliability-engineering`. Not ours to edit. |
@@ -134,17 +141,37 @@ gh run list --workflow=uptime.yml --limit 50 --json conclusion,createdAt \
 gh api repos/cds-snc/status-statut/actions/workflows --jq '.workflows[]|"\(.state)\t\(.name)"'
 ```
 
-**Alerting.** [workflow-failure.yml](.github/workflows/workflow-failure.yml) posts to Slack via
-`STATUS_OPS_WEBHOOK` when a monitored workflow ends in `failure`, `action_required`, `timed_out` or
-`startup_failure`. The conclusion is included in the message, so a frozen run reads differently from
-a broken one.
+### Automated alerting
 
-`action_required` is the one to understand: GitHub freezes a run pending human approval, scheduled
+Two layers, because per-run alerts cannot see every failure mode.
+
+**Per run** — [workflow-failure.yml](.github/workflows/workflow-failure.yml) posts to Slack via
+`STATUS_OPS_WEBHOOK`, with the conclusion in the message so a frozen run reads differently from a
+broken one:
+
+| Workflow | Alerts on |
+| --- | --- |
+| Uptime CI (every 5 min) | `action_required`, `startup_failure` |
+| Everything else (daily) | those, plus `failure` and `timed_out` |
+
+Uptime CI is deliberately exempt from `failure`. A single failed probe is not actionable — the most
+common cause is a `git push` losing a race with a merge to `main`, which the next run fixes on its
+own. `action_required` is never transient, so it still pages immediately.
+
+**Daily** — [monitoring-health.yml](.github/workflows/monitoring-health.yml) runs at 12:30 UTC and
+alerts if any of these hold:
+
+- no commit to `history/` in over 25h,
+- any Uptime CI run frozen as `action_required` in the last 24h,
+- Uptime CI success rate under 40%, or no runs at all.
+
+This is the layer that matters. It checks the *outcome* rather than the runs, so it catches
+workflows that report `success` while recording nothing — the failure mode that cost eight weeks of
+history in §7, and the one no run-level alert can see. Tune the thresholds via the `env:` block.
+
+`action_required` is worth understanding: GitHub freezes a run pending human approval, scheduled
 runs have nobody to approve them, and the run then expires as *completed*. It is not a failure, and
-nothing else in GitHub surfaces it.
-
-Check 1 remains the backstop — it catches runs that succeed but stop recording data, which no
-run-level alert can see.
+GitHub surfaces it nowhere else.
 
 ## 6. Why `update-template` is not in `setup.yml`
 
@@ -178,11 +205,12 @@ The rest of Setup CI was kept: those steps are safe under `GITHUB_TOKEN` (includ
 `workflow-dispatch` of Graphs CI) and give it its real value — applying a `.upptimerc.yml` change
 immediately instead of waiting for the nightly crons.
 
-Upstream's "do not edit this file" banner has been replaced with an accurate one. It claimed changes
-are overwritten when the template updates daily; that never happened here, the workflow meant to do
-it was deleted in [#487](https://github.com/cds-snc/status-statut/pull/487), and the file already
-carried years of our edits (SHA pins, CodeBuild runner label, user-agent headers). There is no
-`.upptimerc.yml` key that disables regeneration, so editing the file was the only option.
+Upstream's "do not edit this file" banner has been replaced with an accurate one in all six files.
+It claimed changes are overwritten when the template updates daily; that never happened here, the
+workflow meant to do it was deleted in [#487](https://github.com/cds-snc/status-statut/pull/487),
+and the files already carried years of our edits (SHA pins, CodeBuild runner label, user-agent
+headers). There is no `.upptimerc.yml` key that disables regeneration, so editing them was the only
+option.
 
 ## 7. Why historical data has a gap (Jul–Sep 2026)
 
