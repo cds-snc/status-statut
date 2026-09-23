@@ -36,20 +36,33 @@ Three facts that explain most surprises:
 
 Independent cron jobs sharing one repo. Nothing calls anything else except where noted.
 
-### Upptime-generated (most still carry a "do not edit" banner — see §6)
+### Upptime-generated (modified by us — see §6)
 
 | File | Name | Trigger | Command | Effect |
 | --- | --- | --- | --- | --- |
 | [uptime.yml](.github/workflows/uptime.yml) | Uptime CI | `*/5 * * * *` | `update` | Probes every site; opens/closes incident Issues **on status change only**. Runs on our CodeBuild runner. |
 | [response-time.yml](.github/workflows/response-time.yml) | Response Time CI | `0 23 * * *` | `response-time` | Same probe, force-commits every site. **This is what feeds the graphs.** |
 | [graphs.yml](.github/workflows/graphs.yml) | Graphs CI | `0 0 * * *` | `graphs` | `npx @upptime/graphs` → `graphs/*.png` |
-| [summary.yml](.github/workflows/summary.yml) | Summary CI | `0 0 * * *` | `readme` | Rewrites `README.md` between markers + `api/*/*.json` badges |
+| [summary.yml](.github/workflows/summary.yml) | Summary CI | `20 0 * * *` | `readme` | Rewrites `README.md` between markers + `api/*/*.json` badges |
 | [site.yml](.github/workflows/site.yml) | Static Site CI | `0 1 * * *` | `site` | Builds `@upptime/status-page`, deploys to `gh-pages` |
 | [setup.yml](.github/workflows/setup.yml) | Setup CI | push to `.upptimerc.yml` | `response-time`, `readme`, `site` | Applies a config change immediately instead of waiting for the crons. Upstream's `update-template` step is removed — **see §6**. |
 
-Ordering is implied by the crons only: `response-time` 23:00 → `graphs` 00:00 → `summary` 00:00 →
-`site` 01:00. If Response Time CI is late, Graphs CI renders yesterday's data and self-corrects the
-next night.
+Ordering is implied by the crons only: `response-time` 23:00 → `graphs` 00:00 → `summary` 00:20 →
+`site` 01:00. They are staggered so no two ever run at once (each takes 20–80s). If Response Time CI
+is late, Graphs CI renders yesterday's data and self-corrects the next night.
+
+All six check out `${{ github.head_ref || github.ref_name }}` rather than the SHA at trigger time,
+which narrows the window in which a merge to `main` can make their `git push` fail.
+
+**Never put two workflows in one `concurrency` group here.** GitHub holds one pending run per group
+and a new arrival *replaces* it, so a shared group silently skips whole workflows — losing a day of
+history with no failure to alert on. Only `uptime.yml` (`-upptime-probe`) and `setup.yml`
+(`-upptime-setup`) have groups, each alone, so an eviction can only ever replace a duplicate of the
+same workflow. The four daily jobs rely on staggered crons instead.
+
+Push races cannot be fully eliminated — upptime pushes unconditionally and never rebases — but they
+surface as a one-off `failure` that clears on the next run, which is strictly better than a silent
+skip.
 
 Deleted on purpose — do not let `update-template` recreate them: `update-template.yml`, `updates.yml`.
 
@@ -58,7 +71,8 @@ Deleted on purpose — do not let `update-template` recreate them: `update-templ
 | File | Trigger | Purpose |
 | --- | --- | --- |
 | [site-custom.yml](.github/workflows/site-custom.yml) | after Static Site CI | Adds `.well-known/security.txt` to `gh-pages`. **Bump `Expires:` before 2027-04-01.** |
-| [workflow-failure.yml](.github/workflows/workflow-failure.yml) | after the CI workflows | Slack alert via `STATUS_OPS_WEBHOOK` on `failure`, `action_required`, `timed_out`, `startup_failure` (§5) |
+| [workflow-failure.yml](.github/workflows/workflow-failure.yml) | after the CI workflows | Per-run Slack alert via `STATUS_OPS_WEBHOOK` (§5) |
+| [monitoring-health.yml](.github/workflows/monitoring-health.yml) | `30 12 * * *` | Daily canary: alerts if monitoring stops producing data (§5) |
 | [s3-backup.yml](.github/workflows/s3-backup.yml) | `0 6 * * *` | Zips the repo to S3 (OIDC role) |
 | [terraform-plan.yml](.github/workflows/terraform-plan.yml) / [terraform-apply.yml](.github/workflows/terraform-apply.yml) | PR / push | Manages the CodeBuild GitHub runner ([terraform/codebuild.tf](terraform/codebuild.tf)) |
 | [ossf-scorecard.yml](.github/workflows/ossf-scorecard.yml), [export_github_data.yml](.github/workflows/export_github_data.yml), [backstage-catalog-helper.yml](.github/workflows/backstage-catalog-helper.yml) | — | Org-wide, synced from `cds-snc/site-reliability-engineering`. Not ours to edit. |
@@ -75,6 +89,13 @@ Repo secrets: `CANADALOGIN_HEADER`, `SUPERSET_HEADER`, `NOTIFICATION_SLACK`,
 Pass secrets to the action **individually**, never as a whole-context blob
 (`SECRETS_CONTEXT: ${{ toJson(secrets) }}`). That pattern matches known exfiltration attacks and
 GitHub will freeze the workflow — it is what caused the §7 outage.
+
+Never interpolate `${{ ... }}` directly into a `run:` block. Values such as a ref or branch name can
+contain shell metacharacters, and the expression is substituted into the script before bash sees it
+([worked example](https://www.kenmuse.com/blog/the-hidden-danger-in-git-ref-names/)). Bind them to
+`env:` and quote the variable instead, and build JSON payloads with `jq -n --arg` rather than string
+concatenation. Passing an expression to an action's `with:` input is safe — inputs reach the action
+as environment variables, never through a shell.
 
 **There is no `GH_PAT`, and none is needed.** Everything runs on `GITHUB_TOKEN` (repo default
 workflow permission is `write`), which covers all writes to `history/`, `api/`, `graphs/`,
@@ -100,13 +121,17 @@ delete its history.
 anywhere in the file), and everything between `<!--start: status pages-->` and
 `<!--end: status pages-->`. Prose outside those markers survives — but put real docs here instead.
 
-**Force a full refresh**, in this order:
+**Force a full refresh.** Run these in order, waiting for each to finish (20–80s) — they all commit
+to `main`, so overlapping them causes push failures:
 
 ```bash
-gh workflow run response-time.yml   # probe + commit every site (first)
-gh workflow run graphs.yml          # rebuild graphs
-gh workflow run summary.yml         # README + badges
-gh workflow run site.yml            # deploy gh-pages
+for wf in response-time graphs summary site; do
+  before=$(gh run list -w "$wf.yml" -L1 --json databaseId --jq '.[0].databaseId')
+  gh workflow run "$wf.yml"
+  # wait for the new run to register, then block until it finishes
+  until id=$(gh run list -w "$wf.yml" -L1 --json databaseId --jq '.[0].databaseId'); [ "$id" != "$before" ]; do sleep 3; done
+  gh run watch "$id" --exit-status || { echo "$wf failed — stopping"; break; }
+done
 ```
 
 **Upgrade `upptime/uptime-monitor`.** Renovate opens the PR. Review the diff for behaviour changes
@@ -134,17 +159,43 @@ gh run list --workflow=uptime.yml --limit 50 --json conclusion,createdAt \
 gh api repos/cds-snc/status-statut/actions/workflows --jq '.workflows[]|"\(.state)\t\(.name)"'
 ```
 
-**Alerting.** [workflow-failure.yml](.github/workflows/workflow-failure.yml) posts to Slack via
-`STATUS_OPS_WEBHOOK` when a monitored workflow ends in `failure`, `action_required`, `timed_out` or
-`startup_failure`. The conclusion is included in the message, so a frozen run reads differently from
-a broken one.
+### Automated alerting
 
-`action_required` is the one to understand: GitHub freezes a run pending human approval, scheduled
+Two layers, because per-run alerts cannot see every failure mode.
+
+**Per run** — [workflow-failure.yml](.github/workflows/workflow-failure.yml) posts to Slack via
+`STATUS_OPS_WEBHOOK`, with the conclusion in the message so a frozen run reads differently from a
+broken one:
+
+| Workflow | Alerts on |
+| --- | --- |
+| Uptime CI (every 5 min) | `action_required`, `startup_failure` |
+| Everything else (daily) | those, plus `failure` and `timed_out` |
+
+Uptime CI is deliberately exempt from `failure`. A single failed probe is not actionable — the most
+common cause is a `git push` losing a race with a merge to `main`, which the next run fixes on its
+own. `action_required` is never transient, so it still pages immediately.
+
+**Daily** — [monitoring-health.yml](.github/workflows/monitoring-health.yml) runs at 12:30 UTC and
+alerts if any of these hold:
+
+- no commit to `history/` in over 25h,
+- any Uptime CI run frozen as `action_required` in the last 24h,
+- Uptime CI success rate under 40%, or no runs at all.
+
+This is the layer that matters. It checks the *outcome* rather than the runs, so it catches
+workflows that report `success` while recording nothing — the failure mode that cost eight weeks of
+history in §7, and the one no run-level alert can see. Tune the thresholds via the `env:` block.
+
+The canary is itself watched: it exits non-zero when unhealthy and is listed in
+`workflow-failure.yml`, so a crash, a bad webhook or an invalid workflow file still alerts. The
+trade-off is that a genuinely unhealthy day sends two messages — the canary's detailed one and a
+terse per-run one for the same run. That is deliberate: a watchdog that can fail silently is worse
+than one that occasionally repeats itself.
+
+`action_required` is worth understanding: GitHub freezes a run pending human approval, scheduled
 runs have nobody to approve them, and the run then expires as *completed*. It is not a failure, and
-nothing else in GitHub surfaces it.
-
-Check 1 remains the backstop — it catches runs that succeed but stop recording data, which no
-run-level alert can see.
+GitHub surfaces it nowhere else.
 
 ## 6. Why `update-template` is not in `setup.yml`
 
@@ -178,11 +229,12 @@ The rest of Setup CI was kept: those steps are safe under `GITHUB_TOKEN` (includ
 `workflow-dispatch` of Graphs CI) and give it its real value — applying a `.upptimerc.yml` change
 immediately instead of waiting for the nightly crons.
 
-Upstream's "do not edit this file" banner has been replaced with an accurate one. It claimed changes
-are overwritten when the template updates daily; that never happened here, the workflow meant to do
-it was deleted in [#487](https://github.com/cds-snc/status-statut/pull/487), and the file already
-carried years of our edits (SHA pins, CodeBuild runner label, user-agent headers). There is no
-`.upptimerc.yml` key that disables regeneration, so editing the file was the only option.
+Upstream's "do not edit this file" banner has been replaced with an accurate one in all six files.
+It claimed changes are overwritten when the template updates daily; that never happened here, the
+workflow meant to do it was deleted in [#487](https://github.com/cds-snc/status-statut/pull/487),
+and the files already carried years of our edits (SHA pins, CodeBuild runner label, user-agent
+headers). There is no `.upptimerc.yml` key that disables regeneration, so editing them was the only
+option.
 
 ## 7. Why historical data has a gap (Jul–Sep 2026)
 

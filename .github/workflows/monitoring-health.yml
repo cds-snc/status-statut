@@ -1,0 +1,110 @@
+# Daily canary: alerts when monitoring stops producing data, which per-run
+# alerting cannot detect. Thresholds are the `env:` values below.
+# Unhealthy runs exit non-zero so workflow-failure.yml also reports them if this
+# workflow itself breaks. See MAINTENANCE.md §5.
+
+name: Monitoring health
+
+on:
+  schedule:
+    - cron: "30 12 * * *" # after the 23:00 → 01:00 UTC data cycle
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  canary:
+    name: Check that monitoring is producing data
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      REPO: ${{ github.repository }}
+      MAX_HISTORY_AGE_HOURS: "25"
+      MIN_UPTIME_SUCCESS_PCT: "40"
+    steps:
+      - name: Evaluate
+        id: check
+        run: |
+          set -uo pipefail
+          problems=()
+
+          # Is data still landing? Anything unreadable is a problem, not a skip:
+          # this canary must fail closed.
+          last=$(gh api "repos/$REPO/commits?path=history&per_page=1" \
+                   --jq '.[0].commit.committer.date' 2>/dev/null) || last=""
+          last_epoch=$(date -u -d "$last" +%s 2>/dev/null) || last_epoch=""
+          if [ -z "$last_epoch" ]; then
+            problems+=("Could not read the last \`history/\` commit date — monitoring is unverified.")
+          else
+            age_s=$(( $(date -u +%s) - last_epoch ))
+            echo "Last history/ commit: $last ($(( age_s / 3600 ))h $(( age_s % 3600 / 60 ))m ago)"
+            # Compare seconds: flooring to whole hours would hide up to 59m of staleness.
+            if [ "$age_s" -gt $(( MAX_HISTORY_AGE_HOURS * 3600 )) ]; then
+              problems+=("No commit to \`history/\` in $(( age_s / 3600 ))h $(( age_s % 3600 / 60 ))m — status data is stale.")
+            fi
+          fi
+
+          # Are the probes running? Every run in the window is fetched unfiltered and
+          # classified here: the API's `status=` filter returns 0 for a value it does
+          # not recognise rather than erroring, and filtering to `completed` would
+          # hide a run still held for approval.
+          since=$(date -u -d '24 hours ago' +%Y-%m-%dT%H:%M:%SZ)
+          runs=$(gh api --paginate \
+            "repos/$REPO/actions/workflows/uptime.yml/runs?created=>$since&per_page=100" \
+            --jq '.workflow_runs[] | "\(.status)|\(.conclusion // "")"' 2>/dev/null) || runs="!"
+
+          if [ "$runs" = "!" ]; then
+            problems+=("Could not read Uptime CI run history from the API — monitoring is unverified.")
+          else
+            count() { printf '%s\n' "$runs" | grep -cE "$1" || true; }
+            total=$(printf '%s\n' "$runs" | grep -c . || true)
+            finished=$(count '\|[a-z_]+$')          # has a conclusion
+            ok=$(count '\|success$')
+            # Held for approval now, or expired while held.
+            blocked=$(count '^(action_required|waiting)\||\|action_required$')
+            echo "Uptime CI over 24h: total=$total finished=$finished success=$ok blocked=$blocked"
+
+            if [ "$blocked" -gt 0 ]; then
+              problems+=("${blocked} Uptime CI run(s) held or frozen as \`action_required\` — GitHub is holding the workflow for approval.")
+            fi
+            if [ "$total" -eq 0 ]; then
+              problems+=("No Uptime CI runs in 24h — the schedule has stopped firing.")
+            elif [ "$finished" -eq 0 ]; then
+              problems+=("No Uptime CI run completed in 24h ($total still in flight).")
+            else
+              pct=$(( ok * 100 / finished ))
+              echo "Success rate: ${pct}%"
+              if [ "$pct" -lt "$MIN_UPTIME_SUCCESS_PCT" ]; then
+                problems+=("Uptime CI success rate ${pct}% over 24h (threshold ${MIN_UPTIME_SUCCESS_PCT}%).")
+              fi
+            fi
+          fi
+
+          if [ ${#problems[@]} -eq 0 ]; then
+            echo "Monitoring is healthy."
+            echo "healthy=true" >> "$GITHUB_OUTPUT"
+          else
+            printf 'UNHEALTHY:\n'; printf ' - %s\n' "${problems[@]}"
+            echo "healthy=false" >> "$GITHUB_OUTPUT"
+            { echo "report<<EOF"; printf '• %s\n' "${problems[@]}"; echo "EOF"; } >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Notify Slack
+        if: steps.check.outputs.healthy == 'false'
+        env:
+          REPORT: ${{ steps.check.outputs.report }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          WEBHOOK: ${{ secrets.STATUS_OPS_WEBHOOK }}
+        run: |
+          set -euo pipefail
+          text=$(printf ':red: Status page monitoring is not producing data:\n%s\n<%s|Monitoring health run> · see MAINTENANCE.md §5' \
+                   "$REPORT" "$RUN_URL")
+          jq -nc --arg t "$text" \
+            '{blocks:[{type:"section",text:{type:"mrkdwn",text:$t}}]}' \
+          | curl -sS --fail-with-body -X POST -H 'Content-type: application/json' --data @- "$WEBHOOK"
+
+      - name: Fail the run if unhealthy
+        if: steps.check.outputs.healthy == 'false'
+        run: exit 1

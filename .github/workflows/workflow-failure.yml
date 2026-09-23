@@ -4,6 +4,7 @@ on:
   workflow_run:
     workflows:
       - "Graphs CI"
+      - "Monitoring health"
       - "Response Time CI"
       - "Static Site CI"
       - "Summary CI"
@@ -16,14 +17,26 @@ on:
 jobs:
   on-failure:
     runs-on: ubuntu-latest
-    # `action_required` means GitHub froze the run pending approval (e.g. its
-    # malicious-workflow scanner). Scheduled runs have nobody to approve them, so
-    # they expire silently — it is not a `failure` and nothing else reports it.
+    # Uptime CI alerts only on conclusions that are never transient; every other
+    # workflow also alerts on `failure` and `timed_out`. See MAINTENANCE.md §5.
     if: >-
-      contains(fromJSON('["failure","action_required","timed_out","startup_failure"]'), github.event.workflow_run.conclusion)
-      && github.event.workflow.name != 'Workflow failure'
+      github.event.workflow.name != 'Workflow failure'
+      && (
+        contains(fromJSON('["action_required","startup_failure"]'), github.event.workflow_run.conclusion)
+        || (github.event.workflow.name != 'Uptime CI'
+            && contains(fromJSON('["failure","timed_out"]'), github.event.workflow_run.conclusion))
+      )
     steps:
       - name: Notify Slack
+        env:
+          CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+          RUN_URL: ${{ github.event.workflow_run.html_url }}
+          WORKFLOW_NAME: ${{ github.event.workflow.name }}
+          WEBHOOK: ${{ secrets.STATUS_OPS_WEBHOOK }}
         run: |
-          json='{"blocks":[{"type":"section","text":{"type":"mrkdwn","text":":red: Status page workflow did not succeed (`${{ github.event.workflow_run.conclusion }}`): <${{ github.event.workflow_run.html_url }}|${{ github.event.workflow.name }}>"}}]}'
-          curl -X POST -H 'Content-type: application/json' --data "$json" ${{ secrets.STATUS_OPS_WEBHOOK }}
+          set -euo pipefail
+          text=$(printf ':red: Status page workflow did not succeed (`%s`): <%s|%s>' \
+                   "$CONCLUSION" "$RUN_URL" "$WORKFLOW_NAME")
+          jq -nc --arg t "$text" \
+            '{blocks:[{type:"section",text:{type:"mrkdwn",text:$t}}]}' \
+          | curl -sS --fail-with-body -X POST -H 'Content-type: application/json' --data @- "$WEBHOOK"
