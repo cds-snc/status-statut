@@ -27,6 +27,15 @@ jobs:
       )
     steps:
       - name: Notify Slack
+        env:
+          CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+          RUN_URL: ${{ github.event.workflow_run.html_url }}
+          WORKFLOW_NAME: ${{ github.event.workflow.name }}
+          WEBHOOK: ${{ secrets.STATUS_OPS_WEBHOOK }}
         run: |
-          json='{"blocks":[{"type":"section","text":{"type":"mrkdwn","text":":red: Status page workflow did not succeed (`${{ github.event.workflow_run.conclusion }}`): <${{ github.event.workflow_run.html_url }}|${{ github.event.workflow.name }}>"}}]}'
-          curl -X POST -H 'Content-type: application/json' --data "$json" ${{ secrets.STATUS_OPS_WEBHOOK }}
+          set -euo pipefail
+          text=$(printf ':red: Status page workflow did not succeed (`%s`): <%s|%s>' \
+                   "$CONCLUSION" "$RUN_URL" "$WORKFLOW_NAME")
+          jq -nc --arg t "$text" \
+            '{blocks:[{type:"section",text:{type:"mrkdwn",text:$t}}]}' \
+          | curl -sS -X POST -H 'Content-type: application/json' --data @- "$WEBHOOK"
