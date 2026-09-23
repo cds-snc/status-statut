@@ -30,4 +30,8 @@ jobs:
           command: "response-time"
         env:
           GH_PAT: ${{ secrets.GITHUB_TOKEN }}
-          SECRETS_CONTEXT: ${{ toJson(secrets) }}
+          CANADALOGIN_HEADER: ${{ secrets.CANADALOGIN_HEADER }}
+          NOTIFICATION_SLACK: ${{ secrets.NOTIFICATION_SLACK }}
+          NOTIFICATION_SLACK_STRATEGY: ${{ secrets.NOTIFICATION_SLACK_STRATEGY }}
+          NOTIFICATION_SLACK_WEBHOOK_URL: ${{ secrets.NOTIFICATION_SLACK_WEBHOOK_URL }}
+          SUPERSET_HEADER: ${{ secrets.SUPERSET_HEADER }}
