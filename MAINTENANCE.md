@@ -184,6 +184,12 @@ This is the layer that matters. It checks the *outcome* rather than the runs, so
 workflows that report `success` while recording nothing — the failure mode that cost eight weeks of
 history in §7, and the one no run-level alert can see. Tune the thresholds via the `env:` block.
 
+The canary is itself watched: it exits non-zero when unhealthy and is listed in
+`workflow-failure.yml`, so a crash, a bad webhook or an invalid workflow file still alerts. The
+trade-off is that a genuinely unhealthy day sends two messages — the canary's detailed one and a
+terse per-run one for the same run. That is deliberate: a watchdog that can fail silently is worse
+than one that occasionally repeats itself.
+
 `action_required` is worth understanding: GitHub freezes a run pending human approval, scheduled
 runs have nobody to approve them, and the run then expires as *completed*. It is not a failure, and
 GitHub surfaces it nowhere else.

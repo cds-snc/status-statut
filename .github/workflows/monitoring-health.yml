@@ -1,6 +1,7 @@
 # Daily canary: alerts when monitoring stops producing data, which per-run
 # alerting cannot detect. Thresholds are the `env:` values below.
-# See MAINTENANCE.md §5.
+# Unhealthy runs exit non-zero so workflow-failure.yml also reports them if this
+# workflow itself breaks. See MAINTENANCE.md §5.
 
 name: Monitoring health
 
@@ -45,29 +46,35 @@ jobs:
             fi
           fi
 
-          # Are the probes running? Conclusions are counted locally rather than via
-          # the API's `status=` filter, which returns 0 for anything it does not
-          # recognise instead of erroring.
+          # Are the probes running? Every run in the window is fetched unfiltered and
+          # classified here: the API's `status=` filter returns 0 for a value it does
+          # not recognise rather than erroring, and filtering to `completed` would
+          # hide a run still held for approval.
           since=$(date -u -d '24 hours ago' +%Y-%m-%dT%H:%M:%SZ)
-          conclusions=$(gh api --paginate \
-            "repos/$REPO/actions/workflows/uptime.yml/runs?created=>$since&status=completed&per_page=100" \
-            --jq '.workflow_runs[].conclusion' 2>/dev/null) || conclusions="!"
+          runs=$(gh api --paginate \
+            "repos/$REPO/actions/workflows/uptime.yml/runs?created=>$since&per_page=100" \
+            --jq '.workflow_runs[] | "\(.status)|\(.conclusion // "")"' 2>/dev/null) || runs="!"
 
-          if [ "$conclusions" = "!" ]; then
+          if [ "$runs" = "!" ]; then
             problems+=("Could not read Uptime CI run history from the API — monitoring is unverified.")
           else
-            count() { printf '%s\n' "$conclusions" | grep -cx "$1" || true; }
-            total=$(printf '%s\n' "$conclusions" | grep -c . || true)
-            ok=$(count success); blocked=$(count action_required)
-            echo "Uptime CI over 24h: completed=$total success=$ok action_required=$blocked"
+            count() { printf '%s\n' "$runs" | grep -cE "$1" || true; }
+            total=$(printf '%s\n' "$runs" | grep -c . || true)
+            finished=$(count '\|[a-z_]+$')          # has a conclusion
+            ok=$(count '\|success$')
+            # Held for approval now, or expired while held.
+            blocked=$(count '^(action_required|waiting)\||\|action_required$')
+            echo "Uptime CI over 24h: total=$total finished=$finished success=$ok blocked=$blocked"
 
             if [ "$blocked" -gt 0 ]; then
-              problems+=("${blocked} Uptime CI run(s) frozen as \`action_required\` — GitHub is holding the workflow for approval.")
+              problems+=("${blocked} Uptime CI run(s) held or frozen as \`action_required\` — GitHub is holding the workflow for approval.")
             fi
             if [ "$total" -eq 0 ]; then
               problems+=("No Uptime CI runs in 24h — the schedule has stopped firing.")
+            elif [ "$finished" -eq 0 ]; then
+              problems+=("No Uptime CI run completed in 24h ($total still in flight).")
             else
-              pct=$(( ok * 100 / total ))
+              pct=$(( ok * 100 / finished ))
               echo "Success rate: ${pct}%"
               if [ "$pct" -lt "$MIN_UPTIME_SUCCESS_PCT" ]; then
                 problems+=("Uptime CI success rate ${pct}% over 24h (threshold ${MIN_UPTIME_SUCCESS_PCT}%).")

@@ -4,6 +4,7 @@ on:
   workflow_run:
     workflows:
       - "Graphs CI"
+      - "Monitoring health"
       - "Response Time CI"
       - "Static Site CI"
       - "Summary CI"
