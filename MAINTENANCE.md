@@ -36,7 +36,7 @@ Three facts that explain most surprises:
 
 Independent cron jobs sharing one repo. Nothing calls anything else except where noted.
 
-### Upptime-generated (banner says "do not edit" — see §6)
+### Upptime-generated (most still carry a "do not edit" banner — see §6)
 
 | File | Name | Trigger | Command | Effect |
 | --- | --- | --- | --- | --- |
@@ -45,7 +45,7 @@ Independent cron jobs sharing one repo. Nothing calls anything else except where
 | [graphs.yml](.github/workflows/graphs.yml) | Graphs CI | `0 0 * * *` | `graphs` | `npx @upptime/graphs` → `graphs/*.png` |
 | [summary.yml](.github/workflows/summary.yml) | Summary CI | `0 0 * * *` | `readme` | Rewrites `README.md` between markers + `api/*/*.json` badges |
 | [site.yml](.github/workflows/site.yml) | Static Site CI | `0 1 * * *` | `site` | Builds `@upptime/status-page`, deploys to `gh-pages` |
-| [setup.yml](.github/workflows/setup.yml) | Setup CI | push to `.upptimerc.yml` | `update-template` + others | Applies a config change immediately. First step is a hazard — **see §6**. |
+| [setup.yml](.github/workflows/setup.yml) | Setup CI | push to `.upptimerc.yml` | `response-time`, `readme`, `site` | Applies a config change immediately instead of waiting for the crons. Upstream's `update-template` step is removed — **see §6**. |
 
 Ordering is implied by the crons only: `response-time` 23:00 → `graphs` 00:00 → `summary` 00:00 →
 `site` 01:00. If Response Time CI is late, Graphs CI renders yesterday's data and self-corrects the
@@ -89,9 +89,9 @@ regeneration doesn't overwrite it.
 ## 4. Routine tasks
 
 **Add / remove a monitored site.** Edit `sites:` in [.upptimerc.yml](.upptimerc.yml) (name, url,
-optional `headers:`, `assignees:`) and merge to `main`. Until the §6 fix is applied, Setup CI will
-fail on its `update-template` step — ignore it. Data starts at the next 23:00 UTC run, or trigger
-it now with `gh workflow run response-time.yml`. Removing a site does **not** delete its history.
+optional `headers:`, `assignees:`) and merge to `main`. Setup CI then refreshes data, README, graphs
+and the published page automatically — no manual dispatch needed. Removing a site does **not**
+delete its history.
 
 **Change the status page.** Everything under `status-website:` in `.upptimerc.yml` — theme, nav,
 `customHeadHtml`/`customBodyHtml`/`customFootHtml`, `i18n:` strings. Then `gh workflow run site.yml`.
@@ -146,15 +146,16 @@ nothing else in GitHub surfaces it.
 Check 1 remains the backstop — it catches runs that succeed but stop recording data, which no
 run-level alert can see.
 
-## 6. Hazard: the `update-template` step
+## 6. Why `update-template` is not in `setup.yml`
 
-`setup.yml`'s first step runs `command: update-template`, which regenerates all 8 Upptime workflow
-files from upstream templates and prunes the data directories. It has **never** succeeded here —
-the push is rejected because `GITHUB_TOKEN` lacks `workflows` permission. Older action versions
-swallowed that error and reported success anyway; since v1.41.1 the step fails visibly, which is
-why Setup CI now shows red.
+Upstream's Setup CI starts with `command: update-template`, which regenerates all 8 Upptime
+workflow files from upstream templates and prunes the data directories. **We removed that step.**
 
-**That failure is the only thing protecting this repo's customisations.** If it were ever given a
+It never succeeded here anyway — the push is rejected because `GITHUB_TOKEN` lacks `workflows`
+permission. Older action versions swallowed that error and reported success; since v1.41.1 it fails
+visibly, which is what made Setup CI go red on every `.upptimerc.yml` change.
+
+The failing step was the only thing protecting this repo's customisations. Had it ever been given a
 workflow-write token:
 
 | Customisation | Fate | Recoverable? |
@@ -170,15 +171,18 @@ workflow-write token:
 The un-pinning is the dealbreaker: it contradicts our OSSF Scorecard posture and would put
 `update-template` and Renovate in a loop undoing each other.
 
-**Fix: delete lines 28–33 of [setup.yml](.github/workflows/setup.yml)** — the `Update template`
-step — and leave the rest. The remaining steps are safe under `GITHUB_TOKEN` and give Setup CI its
-real value: applying a `.upptimerc.yml` change immediately instead of waiting for the nightly crons.
+**Do not re-add the step.** A comment in [setup.yml](.github/workflows/setup.yml) says the same
+thing at the point where it used to be.
 
-Ignore the file's "do not edit" banner. It warns that changes are overwritten when the template
-updates daily; that has never happened here, the workflow meant to do it was deleted in
-[#487](https://github.com/cds-snc/status-statut/pull/487), and the file already carries years of our
-edits (SHA pins, CodeBuild runner label, user-agent headers). There is no `.upptimerc.yml` key that
-disables regeneration, so editing the file is the only option.
+The rest of Setup CI was kept: those steps are safe under `GITHUB_TOKEN` (including the
+`workflow-dispatch` of Graphs CI) and give it its real value — applying a `.upptimerc.yml` change
+immediately instead of waiting for the nightly crons.
+
+Upstream's "do not edit this file" banner has been replaced with an accurate one. It claimed changes
+are overwritten when the template updates daily; that never happened here, the workflow meant to do
+it was deleted in [#487](https://github.com/cds-snc/status-statut/pull/487), and the file already
+carried years of our edits (SHA pins, CodeBuild runner label, user-agent headers). There is no
+`.upptimerc.yml` key that disables regeneration, so editing the file was the only option.
 
 ## 7. Why historical data has a gap (Jul–Sep 2026)
 
@@ -262,7 +266,7 @@ on it.*
 
 | Risk | Action |
 | --- | --- |
-| `update-template` un-pinning actions / pruning history | Delete that step from `setup.yml` (§6) |
+| `update-template` re-added to `setup.yml` (by a person or a template regeneration) | Would un-pin actions and delete retired history — see the comment in the file and §6 |
 | Pressure to add a PAT or App token "to fix Setup CI" | The fix is removing the step, not adding a token (§3) |
 | Whole-secrets blob reintroduced by a careless merge | Review every diff to `uptime.yml` / `response-time.yml` |
 | `security.txt` `Expires: 2027-04-01` | Renew before it lapses |
