@@ -1,10 +1,5 @@
-# Daily canary for the monitoring itself.
-#
-# Per-run alerting (workflow-failure.yml) cannot see the failure mode that cost us
-# eight weeks of history in 2026: workflows that report `success` while recording
-# nothing, and scheduled runs frozen as `action_required` (a *completed* conclusion
-# that GitHub surfaces nowhere). This checks the outcome instead of the runs.
-#
+# Daily canary: alerts when monitoring stops producing data, which per-run
+# alerting cannot detect. Thresholds are the `env:` values below.
 # See MAINTENANCE.md §5.
 
 name: Monitoring health
@@ -34,7 +29,7 @@ jobs:
           set -uo pipefail
           problems=()
 
-          # 1. Is data still landing? Response Time CI commits every site daily.
+          # Is data still landing?
           last=$(gh api "repos/$REPO/commits?path=history&per_page=1" \
                    --jq '.[0].commit.committer.date')
           last_epoch=$(date -u -d "$last" +%s 2>/dev/null || echo "")
@@ -44,18 +39,18 @@ jobs:
             age_h=$(( ( $(date -u +%s) - last_epoch ) / 3600 ))
             echo "Last history/ commit: $last (${age_h}h ago)"
             if [ "$age_h" -gt "$MAX_HISTORY_AGE_HOURS" ]; then
-              problems+=("No commit to \`history/\` in ${age_h}h — status data is stale and graphs will gap.")
+              problems+=("No commit to \`history/\` in ${age_h}h — status data is stale.")
             fi
           fi
 
-          # 2. Are the 5-minute probes actually running?
+          # Are the probes running?
           since=$(date -u -d '24 hours ago' +%Y-%m-%dT%H:%M:%SZ)
           runs() {
             gh api "repos/$REPO/actions/workflows/uptime.yml/runs?created=>$since&per_page=1${1:-}" \
               --jq '.total_count'
           }
           total=$(runs); ok=$(runs "&status=success"); blocked=$(runs "&status=action_required")
-          # A failed API call must not silently read as "zero runs".
+          # A failed API call must not read as "zero runs".
           case "${total}${ok}${blocked}" in
             *[!0-9]*|"")
               echo "::warning::Could not read Uptime CI run counts from the API; skipping that check."
@@ -65,7 +60,7 @@ jobs:
 
           if [ "$total" -ge 0 ]; then
             if [ "$blocked" -gt 0 ]; then
-              problems+=("${blocked} Uptime CI run(s) frozen as \`action_required\` — GitHub is holding the workflow for approval and scheduled runs cannot self-approve.")
+              problems+=("${blocked} Uptime CI run(s) frozen as \`action_required\` — GitHub is holding the workflow for approval.")
             fi
             if [ "$total" -eq 0 ]; then
               problems+=("No Uptime CI runs in 24h — the schedule has stopped firing.")
@@ -95,7 +90,7 @@ jobs:
           WEBHOOK: ${{ secrets.STATUS_OPS_WEBHOOK }}
         run: |
           set -euo pipefail
-          text=$(printf ':red: Status page monitoring is not producing data:\n%s\n<%s|Monitoring health run>' \
+          text=$(printf ':red: Status page monitoring is not producing data:\n%s\n<%s|Monitoring health run> · see MAINTENANCE.md §5' \
                    "$REPORT" "$RUN_URL")
           jq -nc --arg t "$text" \
             '{blocks:[{type:"section",text:{type:"mrkdwn",text:$t}}]}' \

@@ -16,12 +16,15 @@ on:
 jobs:
   on-failure:
     runs-on: ubuntu-latest
-    # `action_required` means GitHub froze the run pending approval (e.g. its
-    # malicious-workflow scanner). Scheduled runs have nobody to approve them, so
-    # they expire silently — it is not a `failure` and nothing else reports it.
+    # Uptime CI alerts only on conclusions that are never transient; every other
+    # workflow also alerts on `failure` and `timed_out`. See MAINTENANCE.md §5.
     if: >-
-      contains(fromJSON('["failure","action_required","timed_out","startup_failure"]'), github.event.workflow_run.conclusion)
-      && github.event.workflow.name != 'Workflow failure'
+      github.event.workflow.name != 'Workflow failure'
+      && (
+        contains(fromJSON('["action_required","startup_failure"]'), github.event.workflow_run.conclusion)
+        || (github.event.workflow.name != 'Uptime CI'
+            && contains(fromJSON('["failure","timed_out"]'), github.event.workflow_run.conclusion))
+      )
     steps:
       - name: Notify Slack
         run: |
