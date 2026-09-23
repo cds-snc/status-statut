@@ -125,10 +125,13 @@ anywhere in the file), and everything between `<!--start: status pages-->` and
 to `main`, so overlapping them causes push failures:
 
 ```bash
-gh workflow run response-time.yml && gh run watch "$(gh run list -w response-time.yml -L1 --json databaseId --jq '.[0].databaseId')"
-gh workflow run graphs.yml     # then repeat the watch pattern for each
-gh workflow run summary.yml
-gh workflow run site.yml
+for wf in response-time graphs summary site; do
+  before=$(gh run list -w "$wf.yml" -L1 --json databaseId --jq '.[0].databaseId')
+  gh workflow run "$wf.yml"
+  # wait for the new run to register, then block until it finishes
+  until id=$(gh run list -w "$wf.yml" -L1 --json databaseId --jq '.[0].databaseId'); [ "$id" != "$before" ]; do sleep 3; done
+  gh run watch "$id" --exit-status || { echo "$wf failed — stopping"; break; }
+done
 ```
 
 **Upgrade `upptime/uptime-monitor`.** Renovate opens the PR. Review the diff for behaviour changes
