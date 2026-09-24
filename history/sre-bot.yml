@@ -1,7 +1,7 @@
-url: https://sre-bot.cdssandbox.xyz/version
+url: https://sre-bot.cdssandbox.xyz/health
 status: up
 code: 200
-responseTime: 371
-lastUpdated: 2026-09-24T14:42:21.601Z
+responseTime: 292
+lastUpdated: 2026-09-24T15:16:03.062Z
 startTime: 2022-10-15T01:02:00.000Z
 generator: Upptime <https://github.com/upptime/upptime>
