@@ -5,6 +5,9 @@
 name: Setup CI
 on:
   push:
+    # main only: this job commits and deploys gh-pages from the pushed ref — see MAINTENANCE.md §2
+    branches:
+      - main
     paths:
       - ".upptimerc.yml"
   repository_dispatch:

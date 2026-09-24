@@ -45,7 +45,7 @@ Independent cron jobs sharing one repo. Nothing calls anything else except where
 | [graphs.yml](.github/workflows/graphs.yml) | Graphs CI | `0 0 * * *` | `graphs` | `npx @upptime/graphs` → `graphs/*.png` |
 | [summary.yml](.github/workflows/summary.yml) | Summary CI | `20 0 * * *` | `readme` | Rewrites `README.md` between markers + `api/*/*.json` badges |
 | [site.yml](.github/workflows/site.yml) | Static Site CI | `0 1 * * *` | `site` | Builds `@upptime/status-page`, deploys to `gh-pages` |
-| [setup.yml](.github/workflows/setup.yml) | Setup CI | push to `.upptimerc.yml` | `response-time`, `readme`, `site` | Applies a config change immediately instead of waiting for the crons. Upstream's `update-template` step is removed — **see §6**. |
+| [setup.yml](.github/workflows/setup.yml) | Setup CI | push to `.upptimerc.yml` on `main` | `response-time`, `readme`, `site` | Applies a config change immediately instead of waiting for the crons. Upstream's `update-template` step is removed — **see §6**. |
 
 Ordering is implied by the crons only: `response-time` 23:00 → `graphs` 00:00 → `summary` 00:20 →
 `site` 01:00. They are staggered so no two ever run at once (each takes 20–80s). If Response Time CI
@@ -59,6 +59,13 @@ and a new arrival *replaces* it, so a shared group silently skips whole workflow
 history with no failure to alert on. Only `uptime.yml` (`-upptime-probe`) and `setup.yml`
 (`-upptime-setup`) have groups, each alone, so an eviction can only ever replace a duplicate of the
 same workflow. The four daily jobs rely on staggered crons instead.
+
+**Setup CI is restricted to pushes on `main`.** Upstream's template has no branch filter because it
+assumes `.upptimerc.yml` is edited on the default branch. Upptime's `git push` targets whatever ref
+was checked out, so on a feature branch Setup CI committed `history/`, `README.md` and
+`history/summary.json` to that branch (inflating the PR diff) and deployed `gh-pages` — the live
+status page — from unmerged config. Branch runs never fed `main`. Do not remove the `branches:`
+filter. A manual `workflow_dispatch` on a branch still does both, so only dispatch Setup CI on `main`.
 
 Push races cannot be fully eliminated — upptime pushes unconditionally and never rebases — but they
 surface as a one-off `failure` that clears on the next run, which is strictly better than a silent
