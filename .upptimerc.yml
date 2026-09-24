@@ -57,13 +57,15 @@ sites:
       - gcharest 
   - name: SRE Bot
     slug: sre-bot
-    url: https://sre-bot.cdssandbox.xyz/version
+    url: https://sre-bot.cdssandbox.xyz/health
+    __dangerous__body_down_if_text_missing: '"status":"ok"'
+    maxResponseTime: 1000
     assignees:
       - CalvinRodo
       - patheard
       - dinophile
-      - sylviamclaughlin 
-      - gcharest 
+      - sylviamclaughlin
+      - gcharest
   - name: Superset
     url: https://superset.cds-snc.ca/healthcheck
     headers:
