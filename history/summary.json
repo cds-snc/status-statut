@@ -152,7 +152,7 @@
   },
   {
     "name": "SRE Bot",
-    "url": "https://sre-bot.cdssandbox.xyz/version",
+    "url": "https://sre-bot.cdssandbox.xyz/health",
     "icon": "https://icons.duckduckgo.com/ip3/sre-bot.cdssandbox.xyz.ico",
     "slug": "sre-bot",
     "status": "up",
