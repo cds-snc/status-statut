@@ -176,21 +176,22 @@
     "url": "https://superset.cds-snc.ca/healthcheck",
     "icon": "https://icons.duckduckgo.com/ip3/superset.cds-snc.ca.ico",
     "slug": "superset",
-    "status": "up",
+    "status": "down",
     "uptime": "99.99%",
-    "uptimeDay": "100.00%",
-    "uptimeWeek": "100.00%",
+    "uptimeDay": "99.96%",
+    "uptimeWeek": "99.99%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "99.99%",
-    "time": 287,
-    "timeDay": 284,
-    "timeWeek": 321,
-    "timeMonth": 342,
+    "time": 286,
+    "timeDay": 149,
+    "timeWeek": 283,
+    "timeMonth": 332,
     "timeYear": 287,
     "dailyMinutesDown": {
       "2026-06-03": 3,
       "2026-06-05": 19,
-      "2026-06-12": 8
+      "2026-06-12": 8,
+      "2026-10-24": 1
     }
   },
   {
